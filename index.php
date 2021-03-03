@@ -88,7 +88,7 @@
     <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();" noload="noload"></dmx-serverconnect>
     <dmx-serverconnect id="scLogout" url="dmxConnect/api/AccessControl/logout.php" noload="noload"></dmx-serverconnect>
     <!-- <dmx-serverconnect id="scVerify" url="dmxConnect/api/AccessControl/scVerify.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect> -->
-    <dmx-serverconnect id="scItemLists" url="dmxConnect/api/Common/getItems.php" dmx-on:unauthorized="browser1.goto('auth')"></dmx-serverconnect>
+    <dmx-serverconnect id="scItemLists" url="dmxConnect/api/Common/getItems.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect>
     <dmx-serverconnect id="scAccountList" url="dmxConnect/api/Common/getAccountList.php" noload></dmx-serverconnect>
     <dmx-serverconnect id="scPaymentMethods" url="dmxConnect/api/Common/getPaymentMethods.php"></dmx-serverconnect>
     <dmx-serverconnect id="scUnits" url="dmxConnect/api/Common/getUnits.php" noload></dmx-serverconnect>
