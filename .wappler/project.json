@@ -1,0 +1,41 @@
+{
+  "projectName": "exp",
+  "styleFile": "/css/style.css",
+  "assetsFolder": "/assets",
+  "designFramework": "bootstrap4",
+  "frameworks": [
+    {
+      "name": "appConnect",
+      "type": "local"
+    },
+    {
+      "name": "bootstrap5",
+      "type": "local"
+    },
+    {
+      "name": "fontawesome_5",
+      "type": "local"
+    },
+    {
+      "name": "jquery_slim_35",
+      "type": "local"
+    },
+    {
+      "name": "moment_2",
+      "type": "local with locales"
+    }
+  ],
+  "projectServerModel": "PHP",
+  "activeTarget": "localhost",
+  "useRouting": true,
+  "addBase": true,
+  "routingHandler": "apache",
+  "projectType": "web",
+  "targets": [
+    {
+      "access": "local",
+      "name": "localhost",
+      "remoteURL": "http://localhost/exp"
+    }
+  ]
+}

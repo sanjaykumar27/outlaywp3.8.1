@@ -1,0 +1,81 @@
+{
+  "routes": [
+    {
+      "path": "/auth",
+      "url": "/login.php"
+    },
+    {
+      "path": "/",
+      "url": "/index.php",
+      "name": "",
+      "routes": [
+        {
+          "type": "page",
+          "path": "/emi/list",
+          "id": "routeEmiList",
+          "url": "Loan/spa_emiList.php"
+        },
+        {
+          "type": "page",
+          "path": "/form/detail/:form_id",
+          "id": "routeFormDetails",
+          "url": "Master/spa_formDetails.php"
+        },
+        {
+          "type": "page",
+          "path": "/form/create",
+          "id": "routeFormCreate",
+          "url": "Master/spa_formManagement.php"
+        },
+        {
+          "type": "page",
+          "path": "/form-management",
+          "id": "routeFormManagement",
+          "url": "Master/spa_formList.php"
+        },
+        {
+          "type": "page",
+          "path": "/account/list",
+          "id": "routeAccountList",
+          "url": "Master/spa_accountList.php"
+        },
+        {
+          "type": "page",
+          "path": "/account/details/:accountid",
+          "id": "routeAccounDetails",
+          "url": "Master/spa_accountDetails.php"
+        },
+        {
+          "type": "page",
+          "path": "/dashboard",
+          "id": "routeDashboard",
+          "url": "spa_dashboard.php"
+        },
+        {
+          "type": "page",
+          "path": "/expense/create",
+          "id": "routeCreateExpense",
+          "url": "Expense/spa_createExpense.php"
+        },
+        {
+          "type": "page",
+          "path": "/targetList",
+          "id": "routeTarget",
+          "url": "Other/spa_targetList.php"
+        },
+        {
+          "type": "page",
+          "path": "/expense/list",
+          "id": "routeExpenseList",
+          "url": "Expense/spa_expenseList.php"
+        },
+        {
+          "type": "page",
+          "path": "/master/items",
+          "id": "routeItems",
+          "url": "Master/spa_items.php"
+        }
+      ]
+    }
+  ]
+}

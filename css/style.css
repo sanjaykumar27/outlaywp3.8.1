@@ -1,0 +1,98 @@
+html * {
+  font-family: "Open Sans", sans-serif;
+}
+
+.header-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  > .menu-subnav
+  > .menu-item
+  > .menu-link
+  .menu-text {
+  font-weight: 400;
+}
+
+.header-menu .menu-nav > .menu-item > .menu-link .menu-text {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.form-control {
+  font-size: 1.2rem;
+}
+
+.custom-pill {
+  border-radius: 24px;
+  border: 1px solid #663259;
+  font-size: 14px;
+}
+
+.table {
+  font-size: 14px !important;
+}
+
+body {
+  overflow-y: scroll !important;
+}
+.sticky-toolbar {
+  top: 82%;
+}
+.form-control.form-control-solid {
+  border-color: #dfdfdf;
+  background-color: transparent;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7d7e7f;
+  text-transform: uppercase;
+}
+.shadow-lg {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+}
+.table td,
+.table th {
+  vertical-align: middle !important;
+}
+.mouse-pointer {
+  cursor: pointer;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  > .menu-submenu
+  .menu-subnav
+  > .menu-item
+  > .menu-link {
+  padding-left: 58px;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-text,
+.aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
+  font-size: 1.1rem;
+}
+
+.menu-text {
+  color: #adade4 !important;
+  font-size: 14px !important;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link {
+  background-color: #0f0f17;
+}
+
+.aside-menu .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #29293a;
+}
+
+.aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #28283c;
+}
+
+.menu-fa-icon {
+  color: #adade4 !important;
+}
