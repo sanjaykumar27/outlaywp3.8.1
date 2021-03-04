@@ -1,6 +1,10 @@
 {
   "routes": [
     {
+      "path": "/mobile-login",
+      "url": "/mobileui/login.php"
+    },
+    {
       "path": "/auth",
       "url": "/login.php"
     },

@@ -293,6 +293,8 @@ RewriteEngine On
     Options -MultiViews
 </IfModule>
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^/?mobile-login(?:/)?$ mobileui/login.php [QSA,NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?auth(?:/)?$ login.php [QSA,NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?(?:/)?$ index.php [QSA,NC,L]

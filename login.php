@@ -179,6 +179,12 @@
 	<!--end::Page Vendors-->
 	<!--begin::Page Scripts(used by this page)-->
 	<script src="assets/js/pages/widgetsc7e5.js"></script>
+
+	<script>
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				window.location = "http://localhost/exp/mobile-login";
+			}
+	</script>
 </body>
 
 </html>
