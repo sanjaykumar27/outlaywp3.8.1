@@ -182,7 +182,7 @@
 
 	<script>
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				window.location = "http://152.67.160.39/exp/mobile-login";
+				window.location = "http://152.67.160.39/exp/mobileui/login.php";
 			}
 	</script>
 </body>

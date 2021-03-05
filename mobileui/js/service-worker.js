@@ -68,9 +68,9 @@ self.addEventListener('fetch', function (event) {
                     return response;
                 })
             });
-        }).catch(function() {
+        }).catch(function () {
             // Fallback Page, When No Internet Connection
             return caches.match('page-fallback.html');
-          })
+        })
     );
 });

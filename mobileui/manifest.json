@@ -5,10 +5,16 @@
   "display": "standalone",
   "background_color": "#0134d4",
   "theme_color": "#0134d4",
-  "categories": ["mobile", "multipurpose", "blog", "ecommerce"],
+  "categories": [
+    "mobile",
+    "multipurpose",
+    "blog",
+    "ecommerce"
+  ],
   "orientation": "portrait",
   "description": "Outlay",
-  "icons": [{
+  "icons": [
+    {
       "src": "img/icons/icon-72x72.png",
       "type": "image/png",
       "sizes": "72x72",
