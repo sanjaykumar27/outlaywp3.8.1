@@ -36,18 +36,10 @@
   <link rel="stylesheet" href="css/custom.css">
   <!-- Web App Manifest-->
   <link rel="manifest" href="manifest.json">
-  <script src="../js/jquery-3.5.1.slim.min.js"></script>
 </head>
 
 <body is="dmx-app" id="login">
-  <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
-    <div class="spinner-grow text-primary" role="status">
-      <div class="sr-only">Loading...</div>
-    </div>
-  </div>
   <div class="internet-connection-status" id="internetStatus"></div>
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-  </svg></a></div>
   <!-- Login Wrapper Area-->
   <div class="login-wrapper d-flex align-items-center justify-content-center">
     <div class="container">
@@ -93,7 +85,6 @@
   <script src="js/default/clipboard.js"></script>
   <!-- PWA-->
   <script src="js/pwa.js"></script>
-  <script src="../bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
