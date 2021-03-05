@@ -2,7 +2,7 @@
 /* checking if browser supports service worker, if yes then registor */
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    window.location = "http://localhost/exp/mobile-login";
+    window.location = "http://152.67.160.39/exp/mobile-login";
 }
 
 function MonthlyGraph() {
