@@ -40,7 +40,7 @@
                 dmx-on:unauthorized="notifies1.danger('Invalid Login')" method="post">
                 <div class="card">
                     <div class="card-body pb-1">
-                        <div class="form-group basic">
+                        <div class="form-group boxed">
                             <div class="input-wrapper">
                                 <label class="label" for="email1">Username</label>
                                 <input type="text" class="form-control" autocomplete="off" id="email1" name="username" placeholder="Username">
@@ -71,7 +71,8 @@
                 </div>
 
                 <div class="form-button-group  transparent">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Log in <span class="spinner-border spinner-border-sm" role="status" dmx-show="state.executing"></span>
+                    </button>
                 </div>
 
             </form>

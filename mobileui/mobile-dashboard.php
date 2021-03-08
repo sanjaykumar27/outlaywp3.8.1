@@ -110,7 +110,7 @@
                     <div class="modal-body">
                         <div class="action-sheet-content">
                             <form>
-                                <div class="form-group basic">
+                                <div class="form-group boxed">
                                     <div class="input-wrapper">
                                         <label class="label" for="account1">From</label>
                                         <select class="form-control custom-select" id="account1">
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group basic">
+                                <div class="form-group boxed">
                                     <label class="label">Enter Amount</label>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
@@ -130,9 +130,7 @@
                                         <input type="text" class="form-control form-control-lg" value="100">
                                     </div>
                                 </div>
-
-
-                                <div class="form-group basic">
+                                <div class="form-group boxed">
                                     <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Deposit</button>
                                 </div>
                             </form>
@@ -1071,6 +1069,7 @@
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <!-- Owl Carousel -->
     <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../bootstrap/4/js/popper.min.js"></script>
 </body>
 
 </html>
