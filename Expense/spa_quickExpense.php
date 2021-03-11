@@ -1,4 +1,6 @@
-<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" components="{dmxDropzone:{},dmxNotifications:{}}" id="QuickExense" bootstrap5="local" -->
+<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" components="{dmxDropzone:{},dmxNotifications:{},dmxStateManagement:{}}" id="QuickExense" bootstrap5="local" -->
+<dmx-query-manager id="qm"></dmx-query-manager>
+<dmx-serverconnect id="scGetQuickExpense" url="dmxConnect/api/Expense/ExpenseList_quick.php" dmx-param:offset="query.offset" dmx-param:limit="10"></dmx-serverconnect>
 <dmx-value id="varInvoiceID" dmx-bind:value="scMaxInvoiceID.data.getMaxInvoiceID.invoice_id + 1"></dmx-value>
 <dmx-datetime id="varDateTime"></dmx-datetime>
 <dmx-serverconnect id="scMaxInvoiceID" url="dmxConnect/api/Expense/getMaxInvoiceID_quick.php"></dmx-serverconnect>
@@ -16,7 +18,8 @@
 </div>
 
 <div class="container-fluid">
-    <form class="form" method="post" is="dmx-serverconnect-form" id="CreateExpense" action="dmxConnect/api/Expense/QuickExpense.php" dmx-on:success="CreateExpense.reset();modalConfirmation.show();notif.success('Expense Created')">
+    <form class="form" method="post" is="dmx-serverconnect-form" id="CreateExpense" action="dmxConnect/api/Expense/QuickExpense.php"
+        dmx-on:success="CreateExpense.reset();modalConfirmation.show();notif.success('Expense Created');scGetQuickExpense.load()">
         <div class="card card-custom card-stretch gutter-b mb-2 pb-0">
             <div class="card-body border-dark-75 rounded p-4">
                 <div class="row mb-2 py-1 row rounded p-2">
@@ -64,64 +67,69 @@
     <div class="card card-custom card-stretch gutter-b mt-5">
         <div class="card-body mt-n3">
             <div class="table-responsive">
-                <table class="table ">
+                <table class="table">
                     <thead class="bg-dark-o-20">
                         <tr>
                             <th>INVOICE</th>
                             <th>ITEM</th>
                             <th>AMOUNT</th>
-                            <th>QUANTITY</th>
                             <th>DATE</th>
                             <th>REMARK</th>
+                            <th>STATUS</th>
                         </tr>
                     </thead>
-                    <tbody is="dmx-repeat" id="repeatExpenseList" dmx-bind:repeat="scExpenseList.data.queryExpenseList.data.sort(invoice_number)" key="Expense_ID">
+                    <tbody is="dmx-repeat" id="repeatExpenseList" dmx-bind:repeat="scGetQuickExpense.data.queryExpenseList.data.sort(invoice_number)">
                         <tr>
                             <td>
                                 <div class="symbol symbol-40 symbol-light">
                                     <span class="symbol-label">
-                                        <a href="javascript:void(0)" class="mouse-pointer font-weight-bolder" dmx-on:click="scInvoiceItems.load({invoiceid: invoice_number});ModalInvoice.show()">{{invoice_number}}</a>
+                                        <a href="javascript:void(0)" class="mouse-pointer font-weight-bolder">{{invoice_id}}</a>
                                     </span>
                                 </div>
                             </td>
-                            <td class="text-truncate">
-                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">{{ItemName}}</a>
-                                <div>
-                                    <a class="text-muted font-weight-bold text-hover-primary" href="#">{{category_name}}</a>
+                            <td>
+                                <div class="symbol symbol-40 symbol-light">{{item_name}}
                                 </div>
                             </td>
                             <td class="text-truncate">
-                                <span class="text-info font-weight-bolder d-block font-size-lg">{{amount.toNumber().formatCurrency("₹ ", ".", ",", "2")}}</span>
-                                <span class="text-muted font-weight-bold">{{PaymentType}}</span>
+                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">{{amount.toNumber().formatCurrency("₹ ", ".", ",", "2")}}</a>
                             </td>
                             <td class="text-truncate">
-                                <span class="font-weight-500">{{quantity + ' ' + Unit}}</span>
+                                <span class="text-info font-weight-bolder d-block font-size-lg">{{purchase_date.formatDate("dd MMM yy")}}</span>
+                            </td>
+                            <td>
+                                <div class="symbol symbol-40 symbol-light">{{remark}}
+                                </div>
                             </td>
                             <td class="text-truncate">
-                                <span class="font-weight-500">{{purchase_date.formatDate("dd MMM yy")}}</span>
-                            </td>
-                            <td class="text-truncate">
-                                <span class="font-weight-500" dmx-bs-tooltip="remark">{{remark.trunc(15, true, "...")}}</span>
+                                <span class="font-weight-500 text-danger fw-bold">Pending</span>
                             </td>
                         </tr>
                     </tbody>
-                    <tbody dmx-hide="scExpenseList.data.queryExpenseList.data.hasItems()">
-                        <tr>
-                            <td colspan="8">
-                                <h4 class="text-center text-muted font-weight-bolder">No expense found this month!</h4>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tr class="bg-light-primary">
-                        <td colspan="2">
-                            <h5 class="font-weight-bolder">Total</h5>
-                        </td>
-                        <td class="text-truncate">
-                            <h5 class="font-weight-bolder">{{scExpenseList.data.TotalAmount.TotalAmount.toNumber().formatCurrency("₹ ", ".", ",", "2")}}</h5>
-                        </td>
-                        <td colspan="5"></td>
-                    </tr>
                 </table>
+                <div class="d-flex flex-row justify-content-md-center align-items-center my-3">
+                    <ul class="pagination justify-content-center pagination-lg" dmx-populate="scGetQuickExpense.data.queryExpenseList" dmx-state="qm" dmx-offset="offset" dmx-generator="bs4paging">
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpense.data.queryExpenseList.page.current == 1" aria-label="First">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpense.data.queryExpenseList.page.offset.first);scGetQuickExpense.load()"><span
+                                    aria-hidden="true">&lsaquo;&lsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpense.data.queryExpenseList.page.current == 1" aria-label="Previous">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpense.data.queryExpenseList.page.offset.prev);scGetQuickExpense.load()"><span
+                                    aria-hidden="true">&lsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:active="title == scGetQuickExpense.data.queryExpenseList.page.current" dmx-class:disabled="!active" dmx-repeat="scGetQuickExpense.data.queryExpenseList.getServerConnectPagination(2,1,'...')">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',(page-1)*scGetQuickExpense.data.queryExpenseList.limit);scGetQuickExpense.load()">{{title}}</a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpense.data.queryExpenseList.page.current ==  scGetQuickExpense.data.queryExpenseList.page.total" aria-label="Next">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpense.data.queryExpenseList.page.offset.next);scGetQuickExpense.load()"><span
+                                    aria-hidden="true">&rsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpense.data.queryExpenseList.page.current ==  scGetQuickExpense.data.queryExpenseList.page.total" aria-label="Last">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpense.data.queryExpenseList.page.offset.last);scGetQuickExpense.load()"><span
+                                    aria-hidden="true">&rsaquo;&rsaquo;</span></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -64,8 +64,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -511,11 +509,11 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "account",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "payment_type",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "remark",
@@ -539,15 +537,15 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "Expense_ID",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "unitid",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "category_id",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "invoice_name",
