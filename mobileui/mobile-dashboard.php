@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <meta name="ac:base" content="/exp">
-    <base href="/exp/mobileui/">
+    <meta name="ac:base" content="/exp_latest">
+    <base href="/exp_latest/mobileui/">
     <script src="../dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="UTF-8">
     <title>Outlay Mobile Dashboard</title>
@@ -28,7 +28,8 @@
             </a>
         </div>
         <div class="pageTitle">
-            <img src="assets/img/logo.png" alt="logo" class="logo">
+            <p class="fs-3">OUTLAY</p>
+            <!-- <img src="assets/img/logo.png" alt="logo" class="logo"> -->
         </div>
         <div class="right">
             <a href="app-notifications.html" class="headerButton">
@@ -105,7 +106,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Balance</h5>
+                        <h5 class="modal-title">Quick Expense</h5>
                     </div>
                     <div class="modal-body">
                         <div class="action-sheet-content">
@@ -838,7 +839,7 @@
         <!-- app footer -->
         <div class="appFooter">
             <div class="footer-title">
-                Copyright © Finapp 2020. All Rights Reserved.
+                Copyright © Outlay 2020. All Rights Reserved.
             </div>
             Bootstrap 4 based mobile template.
         </div>

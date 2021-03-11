@@ -2,7 +2,7 @@
 /* checking if browser supports service worker, if yes then registor */
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    window.location = "http://152.67.160.39/exp/mobileui/login.php";
+    // window.location = "http://152.67.160.39/exp/mobileui/login.php";
 }
 
 function MonthlyGraph() {

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<meta name="ac:base" content="/exp">
+	<meta name="ac:base" content="/exp_latest">
 	<link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
 
 	<script src="dmxAppConnect/dmxAppConnect.js"></script>
@@ -12,7 +12,7 @@
 	<script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
 
 	<meta name="ac:route" content="/auth">
-	<base href="/exp/">
+	<base href="/exp_latest/">
 
 	<meta charset="utf-8" />
 	<title>OUTLAY | Login Page 1</title>
@@ -182,7 +182,7 @@
 
 	<script>
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				window.location = "http://152.67.160.39/exp/mobileui/login.php";
+				// window.location = "http://152.67.160.39/exp/mobileui/login.php";
 			}
 	</script>
 </body>

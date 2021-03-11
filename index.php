@@ -3,8 +3,8 @@
 
 <head>
     <meta name="ac:route" content="/">
-    <meta name="ac:base" content="/exp">
-    <base href="/exp/">
+    <meta name="ac:base" content="/exp_latest">
+    <base href="/exp_latest/">
     <script src="dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="UTF-8">
     <title>Expense Manager</title>
@@ -41,6 +41,7 @@
     <script src="dmxAppConnect/dmxDropzone/dmxDropzone.js" defer=""></script>
     <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
     <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
+    <link rel="stylesheet" href="bootstrap/5/css/bootstrap.min.css" />
 
     <script src="dmxAppConnect/dmxCharts/Chart.min.js" defer=""></script>
     <script src="dmxAppConnect/dmxCharts/dmxCharts.js" defer=""></script>
@@ -66,6 +67,7 @@
     <script src="dmxAppConnect/dmxAutocomplete/dmxAutocomplete.js" defer=""></script>
     <script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
     <script src="dmxAppConnect/dmxBootstrap5Navigation/dmxBootstrap5Navigation.js" defer=""></script>
+    <script src="dmxAppConnect/dmxBootstrap5Modal/dmxBootstrap5Modal.js" defer=""></script>
 </head>
 
 <body id="index" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
@@ -88,9 +90,9 @@
     <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();" noload="noload"></dmx-serverconnect>
     <dmx-serverconnect id="scLogout" url="dmxConnect/api/AccessControl/logout.php" noload="noload"></dmx-serverconnect>
     <!-- <dmx-serverconnect id="scVerify" url="dmxConnect/api/AccessControl/scVerify.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect> -->
-    <dmx-serverconnect id="scItemLists" url="dmxConnect/api/Common/getItems.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect>
+    <dmx-serverconnect id="scItemLists" url="dmxConnect/api/Common/getItems.php" dmx-on:unauthorized="browser1.goto('login.php')" noload></dmx-serverconnect>
     <dmx-serverconnect id="scAccountList" url="dmxConnect/api/Common/getAccountList.php" noload></dmx-serverconnect>
-    <dmx-serverconnect id="scPaymentMethods" url="dmxConnect/api/Common/getPaymentMethods.php"></dmx-serverconnect>
+    <dmx-serverconnect id="scPaymentMethods" url="dmxConnect/api/Common/getPaymentMethods.php" noload></dmx-serverconnect>
     <dmx-serverconnect id="scUnits" url="dmxConnect/api/Common/getUnits.php" noload></dmx-serverconnect>
     <dmx-serverconnect id="scCategories" url="dmxConnect/api/Common/getItemCategory.php" noload></dmx-serverconnect>
     <dmx-preloader id="preloader1" preview="true" spinner="circle" color="#d482b3" bgcolor="#000000e3" size="80"
@@ -377,7 +379,7 @@
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Subheader-->
-                    <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/exp/'">
+                    <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/exp_latest/'">
                         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
                             <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Info-->
@@ -464,9 +466,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php"></div>
+                    <div is="dmx-route" id="routeQuickExpense" path="/expense/quick" url="Expense/spa_quickExpense.php"></div>
                     <div is="dmx-route" id="routeFormDetails" path="/form/detail/:form_id" url="Master/spa_formDetails.php"></div>
                     <div is="dmx-route" id="routeFormCreate" path="/form/create" url="Master/spa_formManagement.php"></div>
                     <div is="dmx-route" id="routeFormManagement" path="/form-management" url="Master/spa_formList.php" dmx-on:show="scFormList.load()"></div>
@@ -475,7 +477,7 @@
                     <!--begin::Entry-->
                     <!--begin::Container Routes-->
                     <div is="dmx-route" id="routeDashboard" path="/dashboard" url="spa_dashboard.php" onshow="MonthlyGraph();"></div>
-                    <div is="dmx-route" id="routeCreateExpense" path="/expense/create" url="Expense/spa_createExpense.php" dmx-on:show="scInvoiceID.load()"></div>
+                    <div is="dmx-route" id="routeCreateExpense" path="/expense/create" url="Expense/spa_createExpense.php" dmx-on:show="scInvoiceID.load();scUnits.load();scAccountList.load();scItemLists.load();scPaymentMethods.load()"></div>
                     <div is="dmx-route" id="routeTarget" path="/targetList" url="Other/spa_targetList.php"></div>
                     <div is="dmx-route" id="routeExpenseList" path="/expense/list" url="Expense/spa_expenseList.php" dmx-on:show="scExpenseList.load({})">
                     </div>
@@ -660,6 +662,7 @@
     <script src="assets/js/scripts.bundlec7e5.js"></script>
     <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundlec7e5.js"></script>
     <script src="assets/js/pages/widgetsc7e5.js"></script>
+    <script src="bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
