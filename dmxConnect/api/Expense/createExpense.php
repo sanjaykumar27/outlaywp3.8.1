@@ -293,11 +293,17 @@ $app->define(<<<'JSON'
                                 "column": "default_unit",
                                 "type": "number",
                                 "value": "{{$value}}"
+                              },
+                              {
+                                "table": "sub_categories",
+                                "column": "created_at",
+                                "type": "datetime",
+                                "value": "{{NOW}}"
                               }
                             ],
                             "table": "sub_categories",
                             "returning": "id",
-                            "query": "INSERT INTO sub_categories\n(category_id, subcategory_name, default_price, default_unit) VALUES ('22', :P1 /* {{$_POST.NewItem[$key]}} */, :P2 /* {{$_POST.Amount[$key]}} */, :P3 /* {{$value}} */)",
+                            "query": "INSERT INTO sub_categories\n(category_id, subcategory_name, default_price, default_unit, created_at) VALUES ('22', :P1 /* {{$_POST.NewItem[$key]}} */, :P2 /* {{$_POST.Amount[$key]}} */, :P3 /* {{$value}} */, :P4 /* {{NOW}} */)",
                             "params": [
                               {
                                 "name": ":P1",
@@ -313,6 +319,11 @@ $app->define(<<<'JSON'
                                 "name": ":P3",
                                 "type": "expression",
                                 "value": "{{$value}}"
+                              },
+                              {
+                                "name": ":P4",
+                                "type": "expression",
+                                "value": "{{NOW}}"
                               }
                             ]
                           }
@@ -444,10 +455,16 @@ $app->define(<<<'JSON'
                         "column": "amount",
                         "type": "number",
                         "value": "{{$_POST.Amount[$key]}}"
+                      },
+                      {
+                        "table": "expense",
+                        "column": "created_on",
+                        "type": "datetime",
+                        "value": "{{NOW}}"
                       }
                     ],
                     "table": "expense",
-                    "query": "INSERT INTO expense\n(user_id, category_id, invoice_number, invoice_name, quantity, unit, purchase_date, receipt_url, receipt_name, account, payment_type, remark, amount) VALUES (:P1 /* {{$parent.SecurityCS.identity}} */, :P2 /* {{ItemID}} */, :P3 /* {{$_POST.InvoiceNumber[$key]}} */, :P4 /* {{$_POST.InvoiceName[$key]}} */, :P5 /* {{$_POST.Quantity[$key]}} */, :P6 /* {{$value}} */, :P7 /* {{$_POST.PurchaseDate[$key]}} */, :P8 /* {{upload1.path}} */, :P9 /* {{upload1.name}} */, :P10 /* {{$_POST.AccountID[$key]}} */, :P11 /* {{$_POST.PaymentMethod[$key]}} */, :P12 /* {{$_POST.Remark[$key]}} */, :P13 /* {{$_POST.Amount[$key]}} */)",
+                    "query": "INSERT INTO expense\n(user_id, category_id, invoice_number, invoice_name, quantity, unit, purchase_date, receipt_url, receipt_name, account, payment_type, remark, amount, created_on) VALUES (:P1 /* {{$parent.SecurityCS.identity}} */, :P2 /* {{ItemID}} */, :P3 /* {{$_POST.InvoiceNumber[$key]}} */, :P4 /* {{$_POST.InvoiceName[$key]}} */, :P5 /* {{$_POST.Quantity[$key]}} */, :P6 /* {{$value}} */, :P7 /* {{$_POST.PurchaseDate[$key]}} */, :P8 /* {{upload1.path}} */, :P9 /* {{upload1.name}} */, :P10 /* {{$_POST.AccountID[$key]}} */, :P11 /* {{$_POST.PaymentMethod[$key]}} */, :P12 /* {{$_POST.Remark[$key]}} */, :P13 /* {{$_POST.Amount[$key]}} */, :P14 /* {{NOW}} */)",
                     "params": [
                       {
                         "name": ":P1",
@@ -513,6 +530,11 @@ $app->define(<<<'JSON'
                         "name": ":P13",
                         "type": "expression",
                         "value": "{{$_POST.Amount[$key]}}"
+                      },
+                      {
+                        "name": ":P14",
+                        "type": "expression",
+                        "value": "{{NOW}}"
                       }
                     ],
                     "returning": "id"

@@ -84,7 +84,7 @@ $app->define(<<<'JSON'
         "meta": [
           {
             "name": "id",
-            "type": "number"
+            "type": "text"
           }
         ],
         "outputType": "object"
@@ -123,16 +123,27 @@ $app->define(<<<'JSON'
                 "column": "category_name",
                 "type": "text",
                 "value": "{{$_POST.CategoryName}}"
+              },
+              {
+                "table": "categories",
+                "column": "created_at",
+                "type": "datetime",
+                "value": "{{NOW}}"
               }
             ],
             "table": "categories",
             "returning": "id",
-            "query": "INSERT INTO categories\n(category_name) VALUES (:P1 /* {{$_POST.CategoryName}} */)",
+            "query": "INSERT INTO categories\n(category_name, created_at) VALUES (:P1 /* {{$_POST.CategoryName}} */, :P2 /* {{NOW}} */)",
             "params": [
               {
                 "name": ":P1",
                 "type": "expression",
                 "value": "{{$_POST.CategoryName}}"
+              },
+              {
+                "name": ":P2",
+                "type": "expression",
+                "value": "{{NOW}}"
               }
             ]
           }

@@ -16,7 +16,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?expense/list(?:/)?$ index.php [QSA,NC,L]
 ## End Wappler routing
 
-## Wappler routing
+## Wappler routing 
 RewriteEngine On
 <IfModule mod_negotiation.c>
     Options -MultiViews

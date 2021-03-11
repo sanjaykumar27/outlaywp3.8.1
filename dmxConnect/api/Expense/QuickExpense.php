@@ -176,11 +176,17 @@ $app->define(<<<'JSON'
                 "column": "remark",
                 "type": "text",
                 "value": "{{$_POST.Remark}}"
+              },
+              {
+                "table": "quick_expense",
+                "column": "created_on",
+                "type": "datetime",
+                "value": "{{NOW}}"
               }
             ],
             "table": "quick_expense",
             "returning": "expense_id",
-            "query": "INSERT INTO quick_expense\n(item_name, amount, purchase_date, invoice_id, reciept, remark) VALUES (:P1 /* {{$_POST.NewItem}} */, :P2 /* {{$_POST.Amount}} */, :P3 /* {{$_POST.PurchaseDate}} */, :P4 /* {{$_POST.invoice_number}} */, :P5 /* {{upload.name}} */, :P6 /* {{$_POST.Remark}} */)",
+            "query": "INSERT INTO quick_expense\n(item_name, amount, purchase_date, invoice_id, reciept, remark, created_on) VALUES (:P1 /* {{$_POST.NewItem}} */, :P2 /* {{$_POST.Amount}} */, :P3 /* {{$_POST.PurchaseDate}} */, :P4 /* {{$_POST.invoice_number}} */, :P5 /* {{upload.name}} */, :P6 /* {{$_POST.Remark}} */, :P7 /* {{NOW}} */)",
             "params": [
               {
                 "name": ":P1",
@@ -211,6 +217,11 @@ $app->define(<<<'JSON'
                 "name": ":P6",
                 "type": "expression",
                 "value": "{{$_POST.Remark}}"
+              },
+              {
+                "name": ":P7",
+                "type": "expression",
+                "value": "{{NOW}}"
               }
             ]
           }
