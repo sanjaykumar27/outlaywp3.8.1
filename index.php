@@ -86,7 +86,7 @@
 
     <dmx-serverconnect id="scChangeTheme" noload="noload" url="dmxConnect/api/Other/Theme/ColorTheme.php" dmx-on:success="scGetTheme.load();notifies1.success('Theme Changed')"></dmx-serverconnect>
     <dmx-smooth-scroll id="scroll1"></dmx-smooth-scroll>
-    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpense.php" onsuccess="MonthlyGraph();" dmx-on:unauthorized="browser1.goto('login.php',true,'Auth')"></dmx-serverconnect>
+    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpense.php" onsuccess="MonthlyGraph();" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect>
     <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();" noload="noload"></dmx-serverconnect>
     <dmx-serverconnect id="scLogout" url="dmxConnect/api/AccessControl/logout.php" noload="noload"></dmx-serverconnect>
     <!-- <dmx-serverconnect id="scVerify" url="dmxConnect/api/AccessControl/scVerify.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect> -->
