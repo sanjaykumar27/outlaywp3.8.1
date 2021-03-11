@@ -11,6 +11,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/5/css/bootstrap.min.css" />
     <link rel="stylesheet" href="fontawesome5/css/all.min.css" />
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/moment.js/2/moment-with-locales.min.js"></script>
@@ -41,7 +42,7 @@
     <script src="dmxAppConnect/dmxDropzone/dmxDropzone.js" defer=""></script>
     <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
     <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
-    <link rel="stylesheet" href="bootstrap/5/css/bootstrap.min.css" />
+
 
     <script src="dmxAppConnect/dmxCharts/Chart.min.js" defer=""></script>
     <script src="dmxAppConnect/dmxCharts/dmxCharts.js" defer=""></script>
