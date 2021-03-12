@@ -200,6 +200,10 @@ $app->define(<<<'JSON'
           {
             "type": "number",
             "name": "id"
+          },
+          {
+            "type": "number",
+            "name": "identity"
           }
         ]
       },
@@ -219,8 +223,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -231,6 +233,16 @@ $app->define(<<<'JSON'
             "Active"
           ]
         }
+      },
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "SecurityCS"
+        },
+        "output": true,
+        "meta": []
       },
       {
         "name": "repeat1",
@@ -382,7 +394,7 @@ $app->define(<<<'JSON'
                         "table": "expense",
                         "column": "user_id",
                         "type": "number",
-                        "value": "{{$parent.SecurityCS.identity}}"
+                        "value": "{{identity}}"
                       },
                       {
                         "table": "expense",
@@ -464,12 +476,12 @@ $app->define(<<<'JSON'
                       }
                     ],
                     "table": "expense",
-                    "query": "INSERT INTO expense\n(user_id, category_id, invoice_number, invoice_name, quantity, unit, purchase_date, receipt_url, receipt_name, account, payment_type, remark, amount, created_on) VALUES (:P1 /* {{$parent.SecurityCS.identity}} */, :P2 /* {{ItemID}} */, :P3 /* {{$_POST.InvoiceNumber[$key]}} */, :P4 /* {{$_POST.InvoiceName[$key]}} */, :P5 /* {{$_POST.Quantity[$key]}} */, :P6 /* {{$value}} */, :P7 /* {{$_POST.PurchaseDate[$key]}} */, :P8 /* {{upload1.path}} */, :P9 /* {{upload1.name}} */, :P10 /* {{$_POST.AccountID[$key]}} */, :P11 /* {{$_POST.PaymentMethod[$key]}} */, :P12 /* {{$_POST.Remark[$key]}} */, :P13 /* {{$_POST.Amount[$key]}} */, :P14 /* {{NOW}} */)",
+                    "query": "INSERT INTO expense\n(user_id, category_id, invoice_number, invoice_name, quantity, unit, purchase_date, receipt_url, receipt_name, account, payment_type, remark, amount, created_on) VALUES (:P1 /* {{identity}} */, :P2 /* {{ItemID}} */, :P3 /* {{$_POST.InvoiceNumber[$key]}} */, :P4 /* {{$_POST.InvoiceName[$key]}} */, :P5 /* {{$_POST.Quantity[$key]}} */, :P6 /* {{$value}} */, :P7 /* {{$_POST.PurchaseDate[$key]}} */, :P8 /* {{upload1.path}} */, :P9 /* {{upload1.name}} */, :P10 /* {{$_POST.AccountID[$key]}} */, :P11 /* {{$_POST.PaymentMethod[$key]}} */, :P12 /* {{$_POST.Remark[$key]}} */, :P13 /* {{$_POST.Amount[$key]}} */, :P14 /* {{NOW}} */)",
                     "params": [
                       {
                         "name": ":P1",
                         "type": "expression",
-                        "value": "{{$parent.SecurityCS.identity}}"
+                        "value": "{{identity}}"
                       },
                       {
                         "name": ":P2",
@@ -571,6 +583,12 @@ $app->define(<<<'JSON'
                         "column": "default_unit",
                         "type": "number",
                         "value": "{{$value}}"
+                      },
+                      {
+                        "table": "sub_categories",
+                        "column": "updated_at",
+                        "type": "datetime",
+                        "value": "{{NOW}}"
                       }
                     ],
                     "table": "sub_categories",
@@ -592,7 +610,7 @@ $app->define(<<<'JSON'
                       "conditional": null,
                       "valid": true
                     },
-                    "query": "UPDATE sub_categories\nSET default_price = :P1 /* {{$_POST.Amount[$key]/$_POST.Quantity[$key]}} */, default_unit = :P2 /* {{$value}} */\nWHERE id = :P3 /* {{ItemID}} */",
+                    "query": "UPDATE sub_categories\nSET default_price = :P1 /* {{$_POST.Amount[$key]/$_POST.Quantity[$key]}} */, default_unit = :P2 /* {{$value}} */, updated_at = :P3 /* {{NOW}} */\nWHERE id = :P4 /* {{ItemID}} */",
                     "params": [
                       {
                         "name": ":P1",
@@ -605,9 +623,14 @@ $app->define(<<<'JSON'
                         "value": "{{$value}}"
                       },
                       {
+                        "name": ":P3",
+                        "type": "expression",
+                        "value": "{{NOW}}"
+                      },
+                      {
                         "operator": "equal",
                         "type": "expression",
-                        "name": ":P3",
+                        "name": ":P4",
                         "value": "{{ItemID}}"
                       }
                     ]

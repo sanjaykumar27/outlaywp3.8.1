@@ -6,11 +6,7 @@ $app = new \lib\App();
 
 $app->define(<<<'JSON'
 {
-  "settings": {
-    "options": {}
-  },
   "meta": {
-    "options": {},
     "$_POST": [
       {
         "type": "number",
@@ -40,8 +36,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -106,7 +100,8 @@ $app->define(<<<'JSON'
                       "type": "expression",
                       "value": "{{NOW}}"
                     }
-                  ]
+                  ],
+                  "returning": "id"
                 }
               },
               "meta": [
@@ -168,7 +163,8 @@ $app->define(<<<'JSON'
                       "type": "expression",
                       "value": "{{$_POST.amount}}"
                     }
-                  ]
+                  ],
+                  "returning": "id"
                 }
               },
               "meta": [

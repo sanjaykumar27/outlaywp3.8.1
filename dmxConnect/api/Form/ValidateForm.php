@@ -6,11 +6,7 @@ $app = new \lib\App();
 
 $app->define(<<<'JSON'
 {
-  "settings": {
-    "options": {}
-  },
   "meta": {
-    "options": {},
     "$_GET": [
       {
         "type": "text",
@@ -20,8 +16,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -96,7 +90,7 @@ $app->define(<<<'JSON'
         "meta": [
           {
             "name": "form_id",
-            "type": "number"
+            "type": "text"
           }
         ],
         "outputType": "object"

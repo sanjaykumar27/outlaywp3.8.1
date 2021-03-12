@@ -20,8 +20,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -83,7 +81,8 @@ $app->define(<<<'JSON'
               {
                 "table": "collections",
                 "column": "name",
-                "direction": "ASC"
+                "direction": "ASC",
+                "recid": 1
               }
             ]
           }
@@ -92,7 +91,7 @@ $app->define(<<<'JSON'
         "meta": [
           {
             "name": "UnitID",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "UnitName",

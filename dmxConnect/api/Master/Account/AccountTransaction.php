@@ -49,8 +49,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",

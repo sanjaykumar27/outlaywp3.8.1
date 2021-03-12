@@ -28,8 +28,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -72,7 +70,8 @@ $app->define(<<<'JSON'
               {
                 "table": "categories",
                 "column": "category_name",
-                "direction": "ASC"
+                "direction": "ASC",
+                "recid": 1
               }
             ]
           }
@@ -133,7 +132,7 @@ $app->define(<<<'JSON'
             "sub": [
               {
                 "name": "CategoryID",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "CategoryName",
@@ -231,11 +230,11 @@ $app->define(<<<'JSON'
                 },
                 {
                   "name": "ItemID",
-                  "type": "number"
+                  "type": "text"
                 },
                 {
                   "name": "category_id",
-                  "type": "number"
+                  "type": "text"
                 }
               ],
               "outputType": "array"
@@ -262,7 +261,7 @@ $app->define(<<<'JSON'
           },
           {
             "name": "CategoryID",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "CategoryName",
@@ -278,7 +277,11 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "ItemID",
-                "type": "number"
+                "type": "text"
+              },
+              {
+                "name": "category_id",
+                "type": "text"
               }
             ]
           }

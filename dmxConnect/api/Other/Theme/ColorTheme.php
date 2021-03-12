@@ -22,8 +22,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -36,6 +34,16 @@ $app->define(<<<'JSON'
           "loginUrl": "/./",
           "forbiddenUrl": "/./"
         }
+      },
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "SecurityCS"
+        },
+        "output": true,
+        "meta": []
       },
       {
         "name": "updateColorTheme",
@@ -62,7 +70,7 @@ $app->define(<<<'JSON'
                   "field": "user_id",
                   "type": "double",
                   "operator": "equal",
-                  "value": "{{SecurityCS.identity}}",
+                  "value": "{{identity}}",
                   "data": {
                     "column": "user_id"
                   },
@@ -72,7 +80,7 @@ $app->define(<<<'JSON'
               "conditional": null,
               "valid": true
             },
-            "query": "UPDATE theme\nSET main_theme = :P1 /* {{$_GET.main_theme}} */\nWHERE user_id = :P2 /* {{SecurityCS.identity}} */",
+            "query": "UPDATE theme\nSET main_theme = :P1 /* {{$_GET.main_theme}} */\nWHERE user_id = :P2 /* {{identity}} */",
             "params": [
               {
                 "name": ":P1",
@@ -83,7 +91,7 @@ $app->define(<<<'JSON'
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P2",
-                "value": "{{SecurityCS.identity}}"
+                "value": "{{identity}}"
               }
             ]
           }

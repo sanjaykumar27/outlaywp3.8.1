@@ -6,11 +6,7 @@ $app = new \lib\App();
 
 $app->define(<<<'JSON'
 {
-  "settings": {
-    "options": {}
-  },
   "meta": {
-    "options": {},
     "$_POST": [
       {
         "type": "text",
@@ -43,22 +39,6 @@ $app->define(<<<'JSON'
           {
             "type": "text",
             "name": "error"
-          },
-          {
-            "name": "name",
-            "type": "text"
-          },
-          {
-            "name": "type",
-            "type": "text"
-          },
-          {
-            "name": "size",
-            "type": "number"
-          },
-          {
-            "name": "error",
-            "type": "text"
           }
         ],
         "outputType": "file"
@@ -87,8 +67,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",

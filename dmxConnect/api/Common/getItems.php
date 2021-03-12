@@ -24,8 +24,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -133,7 +131,7 @@ $app->define(<<<'JSON'
         "meta": [
           {
             "name": "id",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "subcategory_name",
@@ -141,7 +139,7 @@ $app->define(<<<'JSON'
           },
           {
             "name": "category_id",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "default_price",
@@ -149,7 +147,7 @@ $app->define(<<<'JSON'
           },
           {
             "name": "default_unit",
-            "type": "number"
+            "type": "text"
           }
         ],
         "outputType": "array"

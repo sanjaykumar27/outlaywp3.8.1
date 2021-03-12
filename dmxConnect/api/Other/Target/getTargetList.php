@@ -6,11 +6,7 @@ $app = new \lib\App();
 
 $app->define(<<<'JSON'
 {
-  "settings": {
-    "options": {}
-  },
   "meta": {
-    "options": {},
     "$_GET": [
       {
         "type": "text",
@@ -32,8 +28,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -210,7 +204,7 @@ $app->define(<<<'JSON'
             "sub": [
               {
                 "name": "id",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "target_name",
@@ -230,7 +224,7 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "IsCompleted",
-                "type": "number"
+                "type": "boolean"
               },
               {
                 "name": "CreatedOn",

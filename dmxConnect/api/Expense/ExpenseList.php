@@ -76,6 +76,16 @@ $app->define(<<<'JSON'
         }
       },
       {
+        "name": "identity",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "SecurityCS"
+        },
+        "output": true,
+        "meta": []
+      },
+      {
         "name": "queryExpenseList",
         "module": "dbconnector",
         "action": "paged",
@@ -251,9 +261,9 @@ $app->define(<<<'JSON'
                 {
                   "id": "expense.user_id",
                   "field": "expense.user_id",
-                  "type": "double",
+                  "type": "string",
                   "operator": "equal",
-                  "value": "{{SecurityCS.identity}}",
+                  "value": "{{identity}}",
                   "data": {
                     "table": "expense",
                     "column": "user_id",
@@ -267,7 +277,7 @@ $app->define(<<<'JSON'
                     {
                       "id": "sub_categories.category_id",
                       "field": "sub_categories.category_id",
-                      "type": "double",
+                      "type": "string",
                       "operator": "equal",
                       "value": "{{$_GET.categoryid}}",
                       "data": {
@@ -286,7 +296,7 @@ $app->define(<<<'JSON'
                     {
                       "id": "expense.category_id",
                       "field": "expense.category_id",
-                      "type": "double",
+                      "type": "string",
                       "operator": "equal",
                       "value": "{{$_GET.itemid}}",
                       "data": {
@@ -366,13 +376,13 @@ $app->define(<<<'JSON'
               "conditional": null,
               "valid": true
             },
-            "query": "SELECT expense.invoice_number, expense.quantity, expense.purchase_date, expense.receipt_name, expense.receipt_url, expense.account, expense.payment_type, expense.remark, expense.amount, sub_categories.subcategory_name AS ItemName, C1.name AS Unit, C2.name AS PaymentType, expense.id AS Expense_ID, expense.unit AS unitid, expense.category_id, expense.invoice_name, categories.category_name\nFROM expense\nLEFT JOIN sub_categories ON (sub_categories.id = expense.category_id) LEFT JOIN collections AS C1 ON (C1.id = expense.unit) LEFT JOIN categories ON (categories.id = sub_categories.category_id) LEFT JOIN collections AS C2 ON (C2.id = expense.payment_type)\nWHERE expense.user_id = :P1 /* {{SecurityCS.identity}} */ AND (sub_categories.category_id = :P2 /* {{$_GET.categoryid}} */) AND (expense.category_id = :P3 /* {{$_GET.itemid}} */) AND (expense.purchase_date BETWEEN :P4 /* {{$_GET.crstartdate}} */ AND :P5 /* {{$_GET.crenddate}} */) AND (expense.purchase_date = :P6 /* {{$_GET.date}} */) AND (expense.purchase_date BETWEEN :P7 /* {{$_GET.startdate}} */ AND :P8 /* {{$_GET.enddate}} */)\nORDER BY expense.purchase_date DESC, expense.created_on DESC",
+            "query": "SELECT expense.invoice_number, expense.quantity, expense.purchase_date, expense.receipt_name, expense.receipt_url, expense.account, expense.payment_type, expense.remark, expense.amount, sub_categories.subcategory_name AS ItemName, C1.name AS Unit, C2.name AS PaymentType, expense.id AS Expense_ID, expense.unit AS unitid, expense.category_id, expense.invoice_name, categories.category_name\nFROM expense\nLEFT JOIN sub_categories ON (sub_categories.id = expense.category_id) LEFT JOIN collections AS C1 ON (C1.id = expense.unit) LEFT JOIN categories ON (categories.id = sub_categories.category_id) LEFT JOIN collections AS C2 ON (C2.id = expense.payment_type)\nWHERE expense.user_id = :P1 /* {{identity}} */ AND (sub_categories.category_id = :P2 /* {{$_GET.categoryid}} */) AND (expense.category_id = :P3 /* {{$_GET.itemid}} */) AND (expense.purchase_date BETWEEN :P4 /* {{$_GET.crstartdate}} */ AND :P5 /* {{$_GET.crenddate}} */) AND (expense.purchase_date = :P6 /* {{$_GET.date}} */) AND (expense.purchase_date BETWEEN :P7 /* {{$_GET.startdate}} */ AND :P8 /* {{$_GET.enddate}} */)\nORDER BY expense.purchase_date DESC, expense.created_on DESC",
             "params": [
               {
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P1",
-                "value": "{{SecurityCS.identity}}"
+                "value": "{{identity}}"
               },
               {
                 "operator": "equal",
@@ -422,13 +432,15 @@ $app->define(<<<'JSON'
                 "table": "expense",
                 "column": "purchase_date",
                 "direction": "DESC",
-                "condition": "{{$_GET.newexpense != 1}}"
+                "condition": "{{$_GET.newexpense != 1}}",
+                "recid": 1
               },
               {
                 "table": "expense",
                 "column": "created_on",
                 "direction": "DESC",
-                "condition": "{{$_GET.newexpense == 1}}"
+                "condition": "{{$_GET.newexpense == 1}}",
+                "recid": 2
               }
             ]
           }
@@ -669,9 +681,9 @@ $app->define(<<<'JSON'
                 {
                   "id": "expense.user_id",
                   "field": "expense.user_id",
-                  "type": "double",
+                  "type": "string",
                   "operator": "equal",
-                  "value": "{{SecurityCS.identity}}",
+                  "value": "{{identity}}",
                   "data": {
                     "table": "expense",
                     "column": "user_id",
@@ -685,7 +697,7 @@ $app->define(<<<'JSON'
                     {
                       "id": "sub_categories.category_id",
                       "field": "sub_categories.category_id",
-                      "type": "double",
+                      "type": "string",
                       "operator": "equal",
                       "value": "{{$_GET.categoryid}}",
                       "data": {
@@ -704,7 +716,7 @@ $app->define(<<<'JSON'
                     {
                       "id": "expense.category_id",
                       "field": "expense.category_id",
-                      "type": "double",
+                      "type": "string",
                       "operator": "equal",
                       "value": "{{$_GET.itemid}}",
                       "data": {
@@ -784,13 +796,13 @@ $app->define(<<<'JSON'
               "conditional": null,
               "valid": true
             },
-            "query": "SELECT SUM(expense.amount) AS TotalAmount\nFROM expense\nLEFT JOIN sub_categories ON (sub_categories.id = expense.category_id) LEFT JOIN collections AS C1 ON (C1.id = expense.unit) LEFT JOIN categories ON (categories.id = sub_categories.category_id) LEFT JOIN collections AS C2 ON (C2.id = expense.payment_type)\nWHERE expense.user_id = :P1 /* {{SecurityCS.identity}} */ AND (sub_categories.category_id = :P2 /* {{$_GET.categoryid}} */) AND (expense.category_id = :P3 /* {{$_GET.itemid}} */) AND (expense.purchase_date BETWEEN :P4 /* {{$_GET.crstartdate}} */ AND :P5 /* {{$_GET.crenddate}} */) AND (expense.purchase_date = :P6 /* {{$_GET.date}} */) AND (expense.purchase_date BETWEEN :P7 /* {{$_GET.startdate}} */ AND :P8 /* {{$_GET.enddate}} */)\nORDER BY expense.purchase_date DESC",
+            "query": "SELECT SUM(expense.amount) AS TotalAmount\nFROM expense\nLEFT JOIN sub_categories ON (sub_categories.id = expense.category_id) LEFT JOIN collections AS C1 ON (C1.id = expense.unit) LEFT JOIN categories ON (categories.id = sub_categories.category_id) LEFT JOIN collections AS C2 ON (C2.id = expense.payment_type)\nWHERE expense.user_id = :P1 /* {{identity}} */ AND (sub_categories.category_id = :P2 /* {{$_GET.categoryid}} */) AND (expense.category_id = :P3 /* {{$_GET.itemid}} */) AND (expense.purchase_date BETWEEN :P4 /* {{$_GET.crstartdate}} */ AND :P5 /* {{$_GET.crenddate}} */) AND (expense.purchase_date = :P6 /* {{$_GET.date}} */) AND (expense.purchase_date BETWEEN :P7 /* {{$_GET.startdate}} */ AND :P8 /* {{$_GET.enddate}} */)\nORDER BY expense.purchase_date DESC",
             "params": [
               {
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P1",
-                "value": "{{SecurityCS.identity}}"
+                "value": "{{identity}}"
               },
               {
                 "operator": "equal",

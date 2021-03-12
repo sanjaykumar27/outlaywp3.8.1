@@ -37,8 +37,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -358,6 +356,14 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "TransactionType",
+                "type": "text"
+              },
+              {
+                "name": "ToAccount",
+                "type": "text"
+              },
+              {
+                "name": "FromAccount",
                 "type": "text"
               }
             ]

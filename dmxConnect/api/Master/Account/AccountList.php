@@ -28,8 +28,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -40,6 +38,16 @@ $app->define(<<<'JSON'
             "Active"
           ]
         }
+      },
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "SecurityCS"
+        },
+        "output": true,
+        "meta": []
       },
       {
         "name": "getList",
@@ -134,9 +142,9 @@ $app->define(<<<'JSON'
                 {
                   "id": "account_master.userid",
                   "field": "account_master.userid",
-                  "type": "double",
+                  "type": "string",
                   "operator": "equal",
-                  "value": "{{SecurityCS.identity}}",
+                  "value": "{{identity}}",
                   "data": {
                     "table": "account_master",
                     "column": "userid",
@@ -148,13 +156,13 @@ $app->define(<<<'JSON'
               "conditional": null,
               "valid": true
             },
-            "query": "SELECT account_master.account_number AS AccountNumber, account_master.bank_name AS BankName, user.first_name AS FirstName, user.last_name AS LastName, collections.name AS AccountType, account_master.id AS AccountID\nFROM account_master\nLEFT JOIN user ON (user.id = account_master.account_owner) LEFT JOIN collections ON (collections.id = account_master.type)\nWHERE account_master.userid = :P1 /* {{SecurityCS.identity}} */",
+            "query": "SELECT account_master.account_number AS AccountNumber, account_master.bank_name AS BankName, user.first_name AS FirstName, user.last_name AS LastName, collections.name AS AccountType, account_master.id AS AccountID\nFROM account_master\nLEFT JOIN user ON (user.id = account_master.account_owner) LEFT JOIN collections ON (collections.id = account_master.type)\nWHERE account_master.userid = :P1 /* {{identity}} */",
             "params": [
               {
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P1",
-                "value": "{{SecurityCS.identity}}"
+                "value": "{{identity}}"
               }
             ]
           }
@@ -215,7 +223,7 @@ $app->define(<<<'JSON'
             "sub": [
               {
                 "name": "AccountNumber",
-                "type": "number"
+                "type": "text"
               },
               {
                 "name": "BankName",
@@ -235,7 +243,7 @@ $app->define(<<<'JSON'
               },
               {
                 "name": "AccountID",
-                "type": "number"
+                "type": "text"
               }
             ]
           }

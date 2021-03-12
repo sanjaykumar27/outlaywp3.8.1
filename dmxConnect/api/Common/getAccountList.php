@@ -20,8 +20,6 @@ $app->define(<<<'JSON'
   },
   "exec": {
     "steps": [
-      "Connections/ConnCS",
-      "SecurityProviders/SecurityCS",
       {
         "name": "",
         "module": "auth",
@@ -32,6 +30,16 @@ $app->define(<<<'JSON'
             "Active"
           ]
         }
+      },
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "SecurityCS"
+        },
+        "output": true,
+        "meta": []
       },
       {
         "name": "queryAccountList",
@@ -73,9 +81,9 @@ $app->define(<<<'JSON'
                 {
                   "id": "account_master.userid",
                   "field": "account_master.userid",
-                  "type": "double",
+                  "type": "string",
                   "operator": "equal",
-                  "value": "{{SecurityCS.identity}}",
+                  "value": "{{identity}}",
                   "data": {
                     "table": "account_master",
                     "column": "userid",
@@ -87,13 +95,13 @@ $app->define(<<<'JSON'
               "conditional": null,
               "valid": true
             },
-            "query": "SELECT id, account_owner, account_number, bank_name, type\nFROM account_master\nWHERE userid = :P1 /* {{SecurityCS.identity}} */",
+            "query": "SELECT id, account_owner, account_number, bank_name, type\nFROM account_master\nWHERE userid = :P1 /* {{identity}} */",
             "params": [
               {
                 "operator": "equal",
                 "type": "expression",
                 "name": ":P1",
-                "value": "{{SecurityCS.identity}}"
+                "value": "{{identity}}"
               }
             ]
           }
@@ -102,15 +110,15 @@ $app->define(<<<'JSON'
         "meta": [
           {
             "name": "id",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "account_owner",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "account_number",
-            "type": "number"
+            "type": "text"
           },
           {
             "name": "bank_name",
@@ -118,7 +126,7 @@ $app->define(<<<'JSON'
           },
           {
             "name": "type",
-            "type": "number"
+            "type": "text"
           }
         ],
         "outputType": "array"
