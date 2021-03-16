@@ -55,7 +55,7 @@ $app->define(<<<'JSON'
     "module": "api",
     "action": "send",
     "options": {
-      "url": "http://localhost/OutlayCopy/api_generateGraph.php",
+      "url": "http://localhost/exp_latest/api_generateGraph.php",
       "method": "POST",
       "data": {
         "expense_data": "{{data}}"

@@ -2,6 +2,11 @@ html * {
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  font-size: 14px !important;
+  font-weight: 400;
+}
+
 .header-menu
   .menu-nav
   > .menu-item

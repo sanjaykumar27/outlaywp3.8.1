@@ -118,6 +118,16 @@ class core extends Module
         $this->app->scope->global->set('$_SESSION', $this->app->session);
     }
 
+    public function setcookie($options, $name) {
+        $options = $this->app->parseObject($options);
+        $this->app->response->setCookie($name, $options->value, $options);
+    }
+
+    public function removecookie($options, $name) {
+        $options = $this->app->parseObject($options);
+        $this->app->response->clearCookie($name, $options);
+    }
+
     public function response($options) {
 		option_require($options, 'data');
 

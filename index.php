@@ -11,7 +11,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap/5/css/bootstrap.min.css" />
     <link rel="stylesheet" href="fontawesome5/css/all.min.css" />
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/moment.js/2/moment-with-locales.min.js"></script>
@@ -73,7 +72,7 @@
 
 <body id="index" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
     <dmx-notifications id="notif"></dmx-notifications>
-    <dmx-serverconnect id="scCurrentMonthTotal" url="dmxConnect/api/Dashboard/CurrentMonth.php" noload="noload" dmx-param:crstartdate="varStartDate.value" dmx-param:crenddate="varEndDate.value"></dmx-serverconnect>
+    <dmx-serverconnect id="scCurrentMonthTotal" url="dmxConnect/api/Dashboard/CurrentMonth.php" dmx-param:crstartdate="varStartDate.value" dmx-param:crenddate="varEndDate.value"></dmx-serverconnect>
 
     <dmx-value id="varPreviousLast" dmx-bind:value="'<?php echo date('Y-m-d', mktime(0, 0, 0, date('m'), 0)) ?>'"></dmx-value>
     <dmx-value id="varPreviousFirst" dmx-bind:value="'<?php echo date('Y-m-d', mktime(0, 0, 0, date('m')-1, 1))?>'"></dmx-value>
@@ -87,8 +86,8 @@
 
     <dmx-serverconnect id="scChangeTheme" noload="noload" url="dmxConnect/api/Other/Theme/ColorTheme.php" dmx-on:success="scGetTheme.load();notifies1.success('Theme Changed')"></dmx-serverconnect>
     <dmx-smooth-scroll id="scroll1"></dmx-smooth-scroll>
-    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpense.php" onsuccess="MonthlyGraph();" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect>
-    <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();" noload="noload"></dmx-serverconnect>
+    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpenseDashboard.php" onsuccess="MonthlyGraph();" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect>
+    <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();"></dmx-serverconnect>
     <dmx-serverconnect id="scLogout" url="dmxConnect/api/AccessControl/logout.php" noload="noload"></dmx-serverconnect>
     <!-- <dmx-serverconnect id="scVerify" url="dmxConnect/api/AccessControl/scVerify.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect> -->
     <dmx-serverconnect id="scItemLists" url="dmxConnect/api/Common/getItems.php" dmx-on:unauthorized="browser1.goto('login.php')" noload></dmx-serverconnect>
@@ -398,7 +397,7 @@
                         <div class="d-flex flex-column-fluid pt-2">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-lg-4 col-6 pr-2">
+                                    <div class="col-lg-3 col-12 pr-2">
                                         <!--begin::Stats Widget 23-->
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
@@ -413,7 +412,7 @@
                                         </div>
                                         <!--end::Stats Widget 23-->
                                     </div>
-                                    <div class="col-lg-4 col-6 pr-2">
+                                    <div class="col-lg-3 col-12 pr-2">
                                         <!--begin::Stats Widget 23-->
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
@@ -428,7 +427,38 @@
                                         </div>
                                         <!--end::Stats Widget 23-->
                                     </div>
-
+                                    <div class="col-xl-3 col-12">
+										<!--begin::Stats Widget 23-->
+										<div class="card card-custom bg-info card-stretch gutter-b">
+											<!--begin::Body-->
+											<div class="card-body my-4">
+												<a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Airplus Budget</a>
+												<div class="font-weight-bold text-white font-size-sm">
+												<span class="font-size-h2 mr-2">87K%</span>23k to goal</div>
+												<div class="progress progress-xs mt-7 bg-white-o-90">
+													<div class="progress-bar bg-white" role="progressbar" style="width: 87%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+												</div>
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::Stats Widget 23-->
+									</div>
+                                    <div class="col-lg-3 col-12">
+										<!--begin::Stats Widget 22-->
+										<div class="card card-custom bg-danger bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-3.svg)">
+											<!--begin::Body-->
+											<div class="card-body my-4">
+												<a href="#" class="card-title text-white font-weight-bolder font-size-h6 mb-4 text-hover-state-dark d-block ">Liabilities</a>
+												<div class="font-weight-bold text-muted font-size-sm">
+												<span class="text-white font-weight-bolder font-size-h2 mr-2">67%</span>Avarage</div>
+												<div class="progress progress-xs mt-7 bg-white-o-90">
+													<div class="progress-bar bg-white" role="progressbar" style="width: 67%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+												</div>
+											</div>
+											<!--end::Body-->
+										</div>
+										<!--end::Stats Widget 22-->
+									</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-8 mb-5">
@@ -663,7 +693,6 @@
     <script src="assets/js/scripts.bundlec7e5.js"></script>
     <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundlec7e5.js"></script>
     <script src="assets/js/pages/widgetsc7e5.js"></script>
-    <script src="bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

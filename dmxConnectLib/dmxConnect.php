@@ -150,6 +150,10 @@ if (CONFIG('CORS_ORIGIN') !== FALSE) {
 		$origin = CONFIG('CORS_ORIGIN') ?: '*';
 		$methods = CONFIG('CORS_METHODS');
 		$allowedHeaders = CONFIG('CORS_ALLOWED_HEADERS');
+
+		if ($origin == '*' && isset($_SERVER['HTTP_ORIGIN'])) {
+			$origin = $_SERVER['HTTP_ORIGIN'];
+		}
 		
 		header("HTTP/1.1 204 NO CONTENT");
 		header("Access-Control-Allow-Origin: $origin");
@@ -162,6 +166,26 @@ if (CONFIG('CORS_ORIGIN') !== FALSE) {
 		exit();
 	} else {
 		$origin = CONFIG('CORS_ORIGIN') ?: '*';
+
+		if ($origin == '*' && isset($_SERVER['HTTP_ORIGIN'])) {
+			$origin = $_SERVER['HTTP_ORIGIN'];
+		}
+
+		try {
+			if (!empty($_SERVER['HTTPS'])) {
+				if (version_compare(PHP_VERSION, '7.3.0', '<')) {
+					session_set_cookie_params(0, '/; samesite=None', $_SERVER['HTTP_HOST'], TRUE, TRUE);
+				} else {
+					session_set_cookie_params([
+						'samesite' => 'None',
+						'httponly' => TRUE,
+						'secure' => TRUE
+					]);
+				}
+			}
+		} catch (\Exception $e) {
+			// ignore
+		}
 		
 		header("Access-Control-Allow-Origin: $origin");
 		if (CONFIG('CORS_CREDENTIALS') === TRUE) {

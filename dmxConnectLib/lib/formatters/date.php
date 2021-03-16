@@ -103,3 +103,22 @@ function formatter_dateDiff($val, $interval, $date) {
             return NULL;
     }
 }
+
+function formatter_toTimeStamp($val) {
+    if ($val == NULL) return NULL;
+    $date = new \DateTime((is_numeric($val) ? '@' : '') . $val);
+    return $date->getTimestamp();
+}
+
+function formatter_toLocalTime($val) {
+    if ($val == NULL) return NULL;
+    $date = new \DateTime((is_numeric($val) ? '@' : '') . $val);
+    return $date->format('Y-m-d H:i:s');
+}
+
+function formatter_toUTCTime($val) {
+    if ($val == NULL) return NULL;
+    $date = new \DateTime((is_numeric($val) ? '@' : '') . $val);
+    $date->setTimezone(new DateTimeZone("UTC"));
+    return $date->format('Y-m-d\TH:i:s\Z');
+}
