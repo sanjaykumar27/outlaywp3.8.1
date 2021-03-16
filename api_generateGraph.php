@@ -36,7 +36,7 @@ function MonthlyExpenseGraph($records)
                     }
                     $j++;
                 }
-                        $html .= '],axisBorder:{show:!0,color:"#ca8abb"},axisTicks:{show:!0,color:"#fff"}},fill:{type:"gradient",gradient:{shade:"light",gradientToColors:["#ca8abb"],shadeIntensity:1,type:"horizontal",opacityFrom:1,opacityTo:1,stops:[0,100,100,100]}},markers:{size:4,opacity:.9,colors:["#ca8abb"],strokeColor:"#fff",strokeWidth:2,style:"inverted",hover:{size:7}},yaxis:{title:{text:"EXPENSE AMOUNT"}},grid:{row:{colors:["transparent","transparent"],opacity:.2},strokeDashArray:4},responsive:[{breakpoint:600,options:{chart:{toolbar:{show:!1}},legend:{hide:!1}}}]},chart=new ApexCharts(document.querySelector("#expense_monthly"),options);chart.render(),$(".peity-line").each(function(){$(this).peity("area",$(this).data())});
+                        $html .= '],axisBorder:{show:!0,color:"#ca8abb"},axisTicks:{show:!0,color:"#fff"}},fill:{type:"gradient",gradient:{shade:"light",gradientToColors:["#ca8abb"],shadeIntensity:1,type:"horizontal",opacityFrom:1,opacityTo:1,stops:[0,100,100,100]}},markers:{size:4,opacity:.9,colors:["#ca8abb"],strokeColor:"#fff",strokeWidth:2,style:"inverted",hover:{size:7}},yaxis:{title:{text:"AMOUNT"}},grid:{row:{colors:["transparent","transparent"],opacity:.2},strokeDashArray:4},responsive:[{breakpoint:600,options:{chart:{toolbar:{show:!1}},legend:{hide:!1}}}]},chart=new ApexCharts(document.querySelector("#expense_monthly"),options);chart.render(),$(".peity-line").each(function(){$(this).peity("area",$(this).data())});
         </script>';
     echo $html;
 }
