@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_4="cdn" jquery_slim_34="local" id="CreateExpense" components="{dmxFormatter:{},dmxNotifications:{},dmxBootstrap4Toasts:{},dmxAutocomplete:{},dmxDropzone:{},dmxBootstrap5Modal:{}}" bootstrap5="local" -->
+<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_4="cdn" jquery_slim_34="local" id="CreateExpense" components="{dmxFormatter:{},dmxNotifications:{},dmxBootstrap4Toasts:{},dmxAutocomplete:{},dmxDropzone:{},dmxBootstrap5Modal:{}}" bootstrap4="local" -->
 
 <dmx-serverconnect id="scInvoiceItems" url="dmxConnect/api/Expense/getInvoiceItems.php" noload="noload"></dmx-serverconnect>
 <dmx-value id="varCategoryID"></dmx-value>
@@ -122,7 +122,7 @@
 			<div class="col ">
 				<button class="btn btn-primary me-2 btn-lg fw-500" dmx-on:click="varCategoryID.setValue(repeatItem.CategoryID.value)" data-bs-toggle="modal" data-bs-target="#modalAddItem">Add Item</button>
 			</div>
-			<div class="col  text-end">
+			<div class="col  text-right">
 				<button class="btn btn-icon btn-primary me-2 btn-lg fw-500" dmx-on:click="varCounter.setValue(varCounter.value + 1)">
 					<i class="fa fa-plus"></i>
 				</button>
@@ -206,14 +206,14 @@
 	</div>
 </div>
 
-<div class="modal fade" id="modalAddItem" is="dmx-bs5-modal" tabindex="-1" role="dialog" nocloseonclick="true">
+<div class="modal fade" id="modalAddItem" is="dmx-bs4-modal" tabindex="-1" role="dialog" nocloseonclick="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form is="dmx-serverconnect-form" id="FormAddItem" action="dmxConnect/api/Master/createItem.php" method="post"
 				dmx-on:success="notifies1.success('Item added succesfully');scItemLists.load({categoryid: varCategoryID.value});modalAddItem.hide();modalAddItem.FormAddItem.reset();varCategoryID.setValue('')">
 				<div class="modal-header">
 					<h5 class="modal-title">Add Item</h5>
-					<button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal">
+					<button class="btn-close" aria-label="Close" data-dismiss="modal" dmx-on:click="modalAddItem.hide()">
 						<span aria-hidden="true" class="visually-hidden">&times;</span>
 					</button>
 				</div>
@@ -240,7 +240,7 @@
 	</div>
 </div>
 
-<div class="modal fade" id="ModalInvoice" is="dmx-bs5-modal" tabindex="-1" role="dialog" nocloseonclick="true">
+<div class="modal fade" id="ModalInvoice" is="dmx-bs4-modal" tabindex="-1" role="dialog" nocloseonclick="true">
 	<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -249,7 +249,7 @@
 					<div class="col-md-12">
 						<!-- begin: Invoice header-->
 						<div class="d-flex justify-content-between flex-column border-bottom">
-							<h1 class="display-4 fw-boldest">INVOICE #{{scInvoiceItems.data.queryInvoiceItems[0].invoice_number}}<button type="button" class="btn btn-secondary float-end" data-bs-dismiss="modal">Close</button></h1>
+							<h1 class="display-4 fw-boldest">INVOICE #{{scInvoiceItems.data.queryInvoiceItems[0].invoice_number}}<button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Close</button></h1>
 
 						</div>
 						<!--begin: Invoice body-->
