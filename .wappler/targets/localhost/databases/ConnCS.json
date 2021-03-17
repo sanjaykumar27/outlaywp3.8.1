@@ -10,6 +10,240 @@
   },
   "schema": {
     "tables": {
+      "expense": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "user_id": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "user",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "category_id": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "sub_categories",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "invoice_number": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "quantity": {
+            "db": {
+              "type": "decimal",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "unit": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "collections",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "purchase_date": {
+            "db": {
+              "type": "date",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "receipt_url": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "receipt_name": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "account": {
+            "db": {
+              "type": "reference",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true,
+              "references": "id",
+              "inTable": "account_master",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "payment_type": {
+            "db": {
+              "type": "reference",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true,
+              "references": "id",
+              "inTable": "collections",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "remark": {
+            "db": {
+              "type": "text",
+              "default": "NULL",
+              "maxLength": 65535,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "amount": {
+            "db": {
+              "type": "decimal",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": false,
+              "default": "0"
+            }
+          },
+          "invoice_name": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "created_on": {
+            "db": {
+              "type": "datetime",
+              "default": "current_timestamp()",
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "sub_categories": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "category_id": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "categories",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "subcategory_name": {
+            "db": {
+              "type": "string",
+              "maxLength": 50,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "default_price": {
+            "db": {
+              "type": "decimal",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "default_unit": {
+            "db": {
+              "type": "reference",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true,
+              "references": "id",
+              "inTable": "collections",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "status": {
+            "db": {
+              "type": "enum",
+              "default": "'Active'",
+              "maxLength": 8,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer",
+              "default": "0",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "created_at": {
+            "db": {
+              "type": "timestamp",
+              "default": "current_timestamp()",
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
       "quick_expense": {
         "db": {
           "engine": "InnoDB",
@@ -87,6 +321,222 @@
               "nullable": false
             }
           }
+        }
+      },
+      "form_data": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "utf8mb4_general_ci"
+        }
+      },
+      "loan_details": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        }
+      },
+      "account_master": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "userid": {
+            "db": {
+              "type": "reference",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true,
+              "references": "id",
+              "inTable": "user",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "account_owner": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "user",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "account_number": {
+            "db": {
+              "type": "bigInteger",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "CRN": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "card_limit": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "bank_name": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 50,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "ifsc_code": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 50,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "address": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "type": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "collections",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "status": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "theme": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        },
+        "columns": {
+          "user_id": {
+            "db": {
+              "type": "integer",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "main_theme": {
+            "db": {
+              "type": "enum",
+              "maxLength": 5,
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "lic_premiums": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "utf8mb4_general_ci"
+        }
+      },
+      "target_transaction": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "utf8mb4_general_ci"
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "target_id": {
+            "db": {
+              "type": "reference",
+              "primary": false,
+              "nullable": false,
+              "references": "id",
+              "inTable": "target_master",
+              "onUpdate": "RESTRICT",
+              "onDelete": "RESTRICT"
+            }
+          },
+          "credit": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "debit": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "created_on": {
+            "db": {
+              "type": "datetime",
+              "default": "current_timestamp()",
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "collection_type": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "latin1_swedish_ci"
+        }
+      },
+      "lic_master": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "mindfuli_expense",
+          "collation": "utf8mb4_general_ci"
         }
       },
       "target_master": {
@@ -206,94 +656,6 @@
           "engine": "InnoDB",
           "schema": "mindfuli_expense",
           "collation": "utf8mb4_general_ci"
-        }
-      },
-      "sub_categories": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        },
-        "columns": {
-          "id": {
-            "db": {
-              "type": "increments",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "category_id": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "categories",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "subcategory_name": {
-            "db": {
-              "type": "string",
-              "maxLength": 50,
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "default_price": {
-            "db": {
-              "type": "decimal",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "default_unit": {
-            "db": {
-              "type": "reference",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true,
-              "references": "id",
-              "inTable": "collections",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "status": {
-            "db": {
-              "type": "enum",
-              "default": "'Active'",
-              "maxLength": 8,
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "deleted": {
-            "db": {
-              "type": "integer",
-              "default": "0",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "created_at": {
-            "db": {
-              "type": "timestamp",
-              "default": "current_timestamp()",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "updated_at": {
-            "db": {
-              "type": "timestamp",
-              "default": "current_timestamp()",
-              "primary": false,
-              "nullable": false
-            }
-          }
         }
       },
       "categories": {
@@ -707,375 +1069,6 @@
               "nullable": false
             }
           }
-        }
-      },
-      "form_data": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "utf8mb4_general_ci"
-        }
-      },
-      "loan_details": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        }
-      },
-      "account_master": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        },
-        "columns": {
-          "id": {
-            "db": {
-              "type": "increments",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "userid": {
-            "db": {
-              "type": "reference",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true,
-              "references": "id",
-              "inTable": "user",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "account_owner": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "user",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "account_number": {
-            "db": {
-              "type": "bigInteger",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "CRN": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "card_limit": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "bank_name": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 50,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "ifsc_code": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 50,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "address": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 255,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "type": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "collections",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "status": {
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": false
-            }
-          }
-        }
-      },
-      "theme": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        },
-        "columns": {
-          "user_id": {
-            "db": {
-              "type": "integer",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "main_theme": {
-            "db": {
-              "type": "enum",
-              "maxLength": 5,
-              "primary": false,
-              "nullable": false
-            }
-          }
-        }
-      },
-      "expense": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        },
-        "columns": {
-          "id": {
-            "db": {
-              "type": "increments",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "user_id": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "user",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "category_id": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "sub_categories",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "invoice_number": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "quantity": {
-            "db": {
-              "type": "decimal",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "unit": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "collections",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "purchase_date": {
-            "db": {
-              "type": "date",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "receipt_url": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 255,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "receipt_name": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 255,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "account": {
-            "db": {
-              "type": "reference",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true,
-              "references": "id",
-              "inTable": "account_master",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "payment_type": {
-            "db": {
-              "type": "reference",
-              "default": "NULL",
-              "primary": false,
-              "nullable": true,
-              "references": "id",
-              "inTable": "collections",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "remark": {
-            "db": {
-              "type": "text",
-              "default": "NULL",
-              "maxLength": 65535,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "amount": {
-            "db": {
-              "type": "decimal",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "deleted": {
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "invoice_name": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "maxLength": 255,
-              "primary": false,
-              "nullable": true
-            }
-          },
-          "created_on": {
-            "db": {
-              "type": "datetime",
-              "default": "current_timestamp()",
-              "primary": false,
-              "nullable": false
-            }
-          }
-        }
-      },
-      "lic_premiums": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "utf8mb4_general_ci"
-        }
-      },
-      "target_transaction": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "utf8mb4_general_ci"
-        },
-        "columns": {
-          "id": {
-            "db": {
-              "type": "increments",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "target_id": {
-            "db": {
-              "type": "reference",
-              "primary": false,
-              "nullable": false,
-              "references": "id",
-              "inTable": "target_master",
-              "onUpdate": "RESTRICT",
-              "onDelete": "RESTRICT"
-            }
-          },
-          "credit": {
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "debit": {
-            "db": {
-              "type": "integer",
-              "primary": false,
-              "nullable": false
-            }
-          },
-          "created_on": {
-            "db": {
-              "type": "datetime",
-              "default": "current_timestamp()",
-              "primary": false,
-              "nullable": false
-            }
-          }
-        }
-      },
-      "collection_type": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "latin1_swedish_ci"
-        }
-      },
-      "lic_master": {
-        "db": {
-          "engine": "InnoDB",
-          "schema": "mindfuli_expense",
-          "collation": "utf8mb4_general_ci"
         }
       }
     },
