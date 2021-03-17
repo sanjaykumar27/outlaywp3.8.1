@@ -35,7 +35,7 @@
     {
       "access": "local",
       "name": "localhost",
-      "remoteURL": "http://localhost/exp"
+      "remoteURL": "http://localhost/exp_latest"
     }
   ]
 }
