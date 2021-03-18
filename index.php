@@ -131,7 +131,7 @@
                                 fill="#000000" fill-rule="nonzero" />
                         </g>
                     </svg>
-                    
+
                 </span>
             </button>
             <!--end::Topbar Mobile Toggle-->
@@ -166,7 +166,7 @@
                                         fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" />
                                 </g>
                             </svg>
-                            
+
                         </span>
                     </button>
                     <!--end::Toolbar-->
@@ -284,6 +284,28 @@
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle d-flex align-items-center">
                                     <span class="menu-icon">
+                                        <i class="fas fa-user-shield menu-fa-icon fa-fw"></i>
+                                    </span>
+                                    <span class="menu-text">Goals</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./targetList" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Goals</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle d-flex align-items-center">
+                                    <span class="menu-icon">
                                         <i class="fas fa-wallet menu-fa-icon fa-fw"></i>
                                     </span>
                                     <span class="menu-text">Loans / EMI</span>
@@ -344,7 +366,7 @@
                                                 <span class="navi-text">Dark</span>
                                             </a>
                                         </li>
-                                        
+
                                         <!--begin::Item-->
                                         <li class="navi-item active">
                                             <a href="#" class="navi-link" dmx-on:click="scChangeTheme.load({main_theme: 'Light'})">
@@ -398,15 +420,15 @@
                         <div class="d-flex flex-column-fluid pt-2">
                             <div class="container-fluid">
                                 <div class="row">
-                                 <div class="col-xl-3">
-										<div class="card card-custom bg-success card-stretch gutter-b">
-											<div class="card-body ">
-												<a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Balance</a>
-												<div class="font-weight-bold text-white font-size-sm">
-												<span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</div>
-											</div>
-										</div>
-									</div>
+                                    <div class="col-xl-3">
+                                        <div class="card card-custom bg-success card-stretch gutter-b">
+                                            <div class="card-body ">
+                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Balance</a>
+                                                <div class="font-weight-bold text-white font-size-sm">
+                                                    <span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- <div class="col-lg-3 col-12 pr-2">
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
@@ -422,34 +444,35 @@
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
                                             <div class="card-body">
-                                            <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-4 text-hover-state-dark d-block">This Month Expense</a>
-												<div class="font-weight-bold  font-size-sm">
-												<span class="font-size-h1 mr-2 font-weight-bolder ">₹ {{scCurrentMonthTotal.data.Total.TotalAmount}}</div>
+                                                <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-4 text-hover-state-dark d-block">This Month Expense</a>
+                                                <div class="font-weight-bold  font-size-sm">
+                                                    <span class="font-size-h1 mr-2 font-weight-bolder ">₹ {{scCurrentMonthTotal.data.Total.TotalAmount}}</span></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-3 col-12">
-										<div class="card card-custom bg-info card-stretch gutter-b">
-											<div class="card-body">
-												<a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Investment</a>
-												<div class="font-weight-bold text-white font-size-sm">
-												<span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</div>
-											</div>
-										</div>
-									</div>
+                                        <div class="card card-custom bg-info card-stretch gutter-b">
+                                            <div class="card-body">
+                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Investment</a>
+                                                <div class="font-weight-bold text-white font-size-sm">
+                                                    <span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-3 col-12">
-										<div class="card card-custom bg-danger bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-3.svg)">
-											<div class="card-body">
-												<a href="#" class="card-title text-white font-weight-bolder font-size-h6 mb-4 text-hover-state-dark d-block ">Liabilities</a>
-												<div class="font-weight-bold text-muted font-size-sm">
-												<span class="text-white font-weight-bolder font-size-h1 mr-2">₹ 1,50,000</div>
-												<div class="progress progress-xs mt-7 bg-white-o-90">
-													<div class="progress-bar bg-white" role="progressbar" style="width: 67%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-											
-										</div>
-									</div>
+                                        <div class="card card-custom bg-danger bgi-no-repeat card-stretch gutter-b"
+                                            style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-3.svg)">
+                                            <div class="card-body">
+                                                <a href="#" class="card-title text-white font-weight-bolder font-size-h6 mb-4 text-hover-state-dark d-block ">Liabilities</a>
+                                                <div class="font-weight-bold text-muted font-size-sm">
+                                                    <span class="text-white font-weight-bolder font-size-h1 mr-2">₹ 1,50,000</span></div>
+                                                <div class="progress progress-xs mt-7 bg-white-o-90">
+                                                    <div class="progress-bar bg-white" role="progressbar" style="width: 67%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-8 mb-5">
@@ -470,59 +493,59 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-4">
-										<div class="card card-custom card-stretch gutter-b">
-											<div class="card-header border-0">
-												<h3 class="card-title font-weight-bolder text-dark">Upcoming Payments</h3>
-											</div>
-											<div class="card-body pt-0" style="max-height:385px;overflow:auto">
-												<div class="d-flex align-items-center mb-4 bg-light-warning rounded p-5">
-													<div class="d-flex flex-column flex-grow-1 mr-2">
-														<a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">LIC | Sanjay | 32714512</a>
-														<span class="text-muted font-weight-bold">Due in 2 Days</span>
-													</div>
-													<a href="#" class="btn btn-icon btn-light btn-sm">
-															<i class="fa fa-check"></i>
-													</a>
-												</div>
-												<div class="d-flex align-items-center bg-light-success rounded p-5 mb-4">
-													<div class="d-flex flex-column flex-grow-1 mr-2">
-														<a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Tata AIA Term Insurance</a>
-														<span class="text-muted font-weight-bold">Due in 2 Days</span>
-													</div>
-													<a href="#" class="btn btn-icon btn-light btn-sm">
-															<i class="fa fa-check"></i>
-													</a>
-												</div>
-												<div class="d-flex align-items-center bg-light-danger rounded p-5 mb-4">
-													<div class="d-flex flex-column flex-grow-1 mr-2">
-														<a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Jio Fibre Recharge</a>
-														<span class="text-muted font-weight-bold">Due in 2 Days</span>
-													</div>
-													<a href="#" class="btn btn-icon btn-light btn-sm">
-															<i class="fa fa-check"></i>
-													</a>
-												</div>
-												<div class="d-flex align-items-center bg-light-info rounded p-5 mb-4">
-													<div class="d-flex flex-column flex-grow-1 mr-2">
-														<a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Credit Card Bill</a>
-														<span class="text-muted font-weight-bold">Due in 2 Days</span>
-													</div>
-													<a href="#" class="btn btn-icon btn-light btn-sm">
-															<i class="fa fa-check"></i>
-													</a>
-												</div>
+                                        <div class="card card-custom card-stretch gutter-b">
+                                            <div class="card-header border-0">
+                                                <h3 class="card-title font-weight-bolder text-dark">Upcoming Payments</h3>
+                                            </div>
+                                            <div class="card-body pt-0" style="max-height:385px;overflow:auto">
+                                                <div class="d-flex align-items-center mb-4 bg-light-warning rounded p-5">
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                        <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">LIC | Sanjay | 32714512</a>
+                                                        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+                                                    </div>
+                                                    <a href="#" class="btn btn-icon btn-light btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="d-flex align-items-center bg-light-success rounded p-5 mb-4">
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                        <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Tata AIA Term Insurance</a>
+                                                        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+                                                    </div>
+                                                    <a href="#" class="btn btn-icon btn-light btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="d-flex align-items-center bg-light-danger rounded p-5 mb-4">
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                        <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Jio Fibre Recharge</a>
+                                                        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+                                                    </div>
+                                                    <a href="#" class="btn btn-icon btn-light btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="d-flex align-items-center bg-light-info rounded p-5 mb-4">
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                        <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">Credit Card Bill</a>
+                                                        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+                                                    </div>
+                                                    <a href="#" class="btn btn-icon btn-light btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </div>
                                                 <div class="d-flex align-items-center bg-light-info rounded p-5">
-													<div class="d-flex flex-column flex-grow-1 mr-2">
-														<a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">One Plus 8T | EMI</a>
-														<span class="text-muted font-weight-bold">Due in 2 Days</span>
-													</div>
-													<a href="#" class="btn btn-icon btn-light btn-sm">
-															<i class="fa fa-check"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                        <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">One Plus 8T | EMI</a>
+                                                        <span class="text-muted font-weight-bold">Due in 2 Days</span>
+                                                    </div>
+                                                    <a href="#" class="btn btn-icon btn-light btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-4 mb-5">
                                         <div class="card card-custom card-stretch ">
                                             <div class="card-header border-0">
@@ -534,7 +557,7 @@
                                                         <a href="#" class="font-weight-bold text-dark-75 text-hover-primary font-size-lg mb-1">{{subcategory_name}}</a>
                                                         <span class="text-muted font-weight-bold">{{category_name}}</span>
                                                     </div>
-                                                    <span class="label label-xl label-light label-inline my-lg-0 my-2 text-dark-50 font-weight-bolder">{{total.toNumber().formatCurrency("₹", ".", ",", "2")}}</span>
+                                                    <span class="label label-xl label-light label-inline my-lg-0 my-2 text-dark-50 font-weight-bolder">{{total.toNumber().formatCurrency("₹ ", ".", ",", "2")}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -543,7 +566,7 @@
                             </div>
                         </div>
                     </div>
-                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php"></div>
+                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
                     <div is="dmx-route" id="routeQuickExpense" path="/expense/quick" url="Expense/spa_quickExpense.php"></div>
                     <div is="dmx-route" id="routeFormDetails" path="/form/detail/:form_id" url="Master/spa_formDetails.php"></div>
                     <div is="dmx-route" id="routeFormCreate" path="/form/create" url="Master/spa_formManagement.php"></div>
@@ -554,10 +577,10 @@
                     <!--begin::Container Routes-->
                     <div is="dmx-route" id="routeDashboard" path="/dashboard" url="spa_dashboard.php" onshow="MonthlyGraph();"></div>
                     <div is="dmx-route" id="routeCreateExpense" path="/expense/create" url="Expense/spa_createExpense.php" dmx-on:show="scInvoiceID.load();scUnits.load();scAccountList.load();scItemLists.load();scPaymentMethods.load()"></div>
-                    <div is="dmx-route" id="routeTarget" path="/targetList" url="Other/spa_targetList.php"></div>
+                    <div is="dmx-route" id="routeTarget" path="/targetList" url="Other/spa_targetList.php" dmx-on:show="scTargetList.load()"></div>
                     <div is="dmx-route" id="routeExpenseList" path="/expense/list" url="Expense/spa_expenseList.php" dmx-on:show="scExpenseList.load({})">
                     </div>
-                    <div is="dmx-route" id="routeItems" path="/master/items" url="Master/spa_items.php" dmx-on:show="scItemList.load()"></div>
+                    <div is="dmx-route" id="routeItems" path="/master/items" url="Master/spa_items.php" dmx-on:show="scItemList.load();scCategories.load()"></div>
                     <!--end::Entry-->
                 </div>
                 <!--end::Content-->
@@ -625,7 +648,7 @@
                                                 <circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5" />
                                             </g>
                                         </svg>
-                                        
+
                                     </span>
                                 </span>
                                 <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
@@ -657,7 +680,7 @@
                                             <circle fill="#000000" opacity="0.3" cx="18.5" cy="5.5" r="2.5" />
                                         </g>
                                     </svg>
-                                    
+
                                 </span>
                             </div>
                         </div>
@@ -693,7 +716,7 @@
                                     <rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
                                 </g>
                             </svg>
-                            
+
                         </span>
                     </span>
                     <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -722,7 +745,7 @@
                         fill="#000000" fill-rule="nonzero" />
                 </g>
             </svg>
-            
+
         </span>
     </div>
 
