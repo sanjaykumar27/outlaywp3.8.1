@@ -1,15 +1,15 @@
 <!doctype html>
-<html is="dmx-app">
+<html is="dmx-app" lang="en">
 
 <head>
     <meta name="ac:route" content="/">
     <meta name="ac:base" content="/exp_latest">
     <base href="/exp_latest/">
     <script src="dmxAppConnect/dmxAppConnect.js"></script>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <title>Expense Manager</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-control" content="public">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fontawesome5/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
