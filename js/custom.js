@@ -19,3 +19,14 @@ function CurrentMonthGraph() {
     $('#expense_monthly').html(rec_data);
 }
 
+$(function () {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('../service-worker.js')
+        /* remove these below two lines of code once development is complete
+     <- ignore this error, its a wappler issue, js is completely fine */
+        // .then((reg) => console.log('Service worker registored', reg))
+        // .catch((err) => console.log('Service worker not registored', err))
+    }
+
+});
+
