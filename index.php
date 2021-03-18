@@ -56,8 +56,8 @@
     <script src="js/custom.js" defer=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="manifest.json">
-    <meta name="apple-mobile-web-app-status-bar" content="#663259">
-    <meta name="theme-color" content="#663259">
+	<meta name="apple-mobile-web-app-status-bar" content="#663259">
+	<meta name="theme-color" content="#663259">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="dmxAppConnect/dmxPreloader/dmxPreloader.css" />
     <script src="dmxAppConnect/dmxPreloader/dmxPreloader.js" defer=""></script>
