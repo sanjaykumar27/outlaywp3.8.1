@@ -5,11 +5,10 @@
   "short_name": "Kharcha ",
   "scope": "/exp_latest/index.php",
   "display": "standalone",
-  "start_url": "http://152.67.160.39/exp_latest/index.php",
+  "start_url": "152.67.160.39/exp_latest/index.php",
   "background_color": "#000000",
   "theme_color": "transparent",
   "orientation": "any",
-  "prefer_related_applications": "false",
   "icons": [
     {
       "src": "/exp_latest/assets/icons/windows10/Square71x71Logo.scale-400.png",
