@@ -1,4 +1,6 @@
 <!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" components="{dmxDropzone:{},dmxNotifications:{},dmxStateManagement:{}}" id="QuickExense" bootstrap5="local" -->
+<dmx-notifications id="notif"></dmx-notifications>
+<dmx-serverconnect id="scDeleteQuickExpense" url="dmxConnect/api/Expense/RemoveQuickExpense.php" noload dmx-on:success="notif.success('Record Deleted');scGetQuickExpense.load()"></dmx-serverconnect>
 <dmx-query-manager id="qm"></dmx-query-manager>
 <dmx-serverconnect id="scGetQuickExpense" url="dmxConnect/api/Expense/ExpenseList_quick.php" dmx-param:offset="query.offset" dmx-param:limit="10"></dmx-serverconnect>
 <dmx-value id="varInvoiceID" dmx-bind:value="scMaxInvoiceID.data.getMaxInvoiceID.invoice_id + 1"></dmx-value>
@@ -102,7 +104,9 @@
                                 </div>
                             </td>
                             <td class="text-truncate">
-                                <span class="font-weight-500 text-danger fw-bold">Pending</span>
+                                <button class="btn btn-outline-danger" dmx-on:click="scDeleteQuickExpense.load({id: expense_id})">
+                                    <i class="fas fa-check p-0"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
