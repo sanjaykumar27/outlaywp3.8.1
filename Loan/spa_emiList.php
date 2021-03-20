@@ -40,11 +40,20 @@
                                     <span class="text-muted small">Interest: {{interest_amount.formatCurrency("₹ ", ".", ",", "2")}}</span>
                                 </td>
                                 <td class="text-truncate">
-                                    <span class="label label-lg label-inline" dmx-class:label-light-success="status" dmx-class:label-light-danger="!status">{{status ? 'Completed' : 'Pending'}}</span>
-
+                                    <dmx-value id="varPercentage" dmx-bind:value="((paid_emi/no_of_emi) * 100).round()"></dmx-value>
+                                    <div class="d-flex flex-column w-100 mr-2">
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <span class="text-muted mr-2 font-size-sm font-weight-bold">{{varPercentage.value}}%</span>
+                                            <span class="label label-lg label-inline" dmx-class:label-light-success="status" dmx-class:label-light-danger="!status">{{status ? 'Completed' : 'Pending'}}</span>
+                                        </div>
+                                        <div class="progress progress-xs w-100">
+                                            <div class="progress-bar" role="progressbar" dmx-class:bg-danger="varPercentage.value < 100" dmx-class:bg-success="varPercentage.value == 100" dmx-bind:style="width: {{varPercentage.value}}%;"
+                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td class="text-center text-truncate">
-                                    <a href="#" class="btn btn-light btn-hover-primary btn-sm" dmx-bind:title="'Show Details'">
+                                    <a dmx-bind:href="./emi/details/{{id}}" class="btn btn-light btn-hover-primary btn-sm" dmx-bind:title="'Show Details'">
                                         <i class="flaticon-list"></i> Details
                                     </a>
                                 </td>

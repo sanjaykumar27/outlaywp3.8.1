@@ -56,8 +56,8 @@
     <script src="js/custom.js" defer=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="manifest.json">
-	<meta name="apple-mobile-web-app-status-bar" content="#663259">
-	<meta name="theme-color" content="#663259">
+    <meta name="apple-mobile-web-app-status-bar" content="#663259">
+    <meta name="theme-color" content="#663259">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="dmxAppConnect/dmxPreloader/dmxPreloader.css" />
     <script src="dmxAppConnect/dmxPreloader/dmxPreloader.js" defer=""></script>
@@ -567,6 +567,7 @@
                         </div>
                     </div>
                     <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
+                    <div is="dmx-route" id="routeEmiDetails" path="/emi/details/:emi_id" url="Loan/spa_emiDetails.php" dmx-on:show="scEMIDetails.load()"></div>
                     <div is="dmx-route" id="routeQuickExpense" path="/expense/quick" url="Expense/spa_quickExpense.php"></div>
                     <div is="dmx-route" id="routeFormDetails" path="/form/detail/:form_id" url="Master/spa_formDetails.php"></div>
                     <div is="dmx-route" id="routeFormCreate" path="/form/create" url="Master/spa_formManagement.php"></div>
@@ -585,25 +586,25 @@
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->
-                
-               
+
+
             </div>
-			
-			<div class="bg-white bottom-0 d-flex  position-fixed py-2 w-100" id="kt_footer">
-                    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
-                       
-                        <div class="nav nav-dark">
-                            <a href="javascript:void(0)" class="nav-link pl-0 pr-5">About</a>
-                            <a href="javascript:void(0)" class="nav-link pl-0 pr-5">Team</a>
-                            <a href="javascript:void(0)" class="nav-link pl-0 pr-0">Contact</a>
-                        </div>
-                        
+
+            <div class="bg-white bottom-0 d-flex  position-fixed py-2 w-100" id="kt_footer">
+                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
+
+                    <div class="nav nav-dark">
+                        <a href="javascript:void(0)" class="nav-link pl-0 pr-5">About</a>
+                        <a href="javascript:void(0)" class="nav-link pl-0 pr-5">Team</a>
+                        <a href="javascript:void(0)" class="nav-link pl-0 pr-0">Contact</a>
                     </div>
-                   
+
                 </div>
-           
+
+            </div>
+
         </div>
-        
+
     </div>
     <!--end::Main-->
     <!-- begin::User Panel-->

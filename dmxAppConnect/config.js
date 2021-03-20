@@ -104,5 +104,36 @@ dmx.config({
       ],
       "outputType": "array"
     }
+  },
+  "EMIDEtails": {
+    "repeatEmis": {
+      "meta": [
+        {
+          "name": "id",
+          "type": "text"
+        },
+        {
+          "name": "loan_id",
+          "type": "number"
+        },
+        {
+          "name": "due_date",
+          "type": "date"
+        },
+        {
+          "name": "paid_on",
+          "type": "date"
+        },
+        {
+          "name": "loan_amount",
+          "type": "number"
+        },
+        {
+          "name": "status",
+          "type": "number"
+        }
+      ],
+      "outputType": "array"
+    }
   }
 });

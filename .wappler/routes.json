@@ -21,6 +21,12 @@
         },
         {
           "type": "page",
+          "path": "/emi/details/:emi_id",
+          "id": "routeEmiDetails",
+          "url": "Loan/spa_emiDetails.php"
+        },
+        {
+          "type": "page",
           "path": "/expense/quick",
           "id": "routeQuickExpense",
           "url": "Expense/spa_quickExpense.php"
