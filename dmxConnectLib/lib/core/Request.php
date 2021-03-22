@@ -18,14 +18,10 @@ class Request
     public $hostname;
     public $secure;
     public $xhr;
+    public $protocol;
 
     public function __construct($app) {
         $this->app = $app;
-        $this->server = $_SERVER;
-        $this->get = $_GET;
-        $this->post = $this->getPost();
-        $this->headers = $this->getHeaders();
-        $this->cookies = $_COOKIE;
 
         $this->method = $_SERVER['REQUEST_METHOD'];
         $this->ip = $_SERVER['REMOTE_ADDR'];
@@ -34,6 +30,15 @@ class Request
         $this->hostname = $_SERVER['SERVER_NAME'];
         $this->secure = !empty($_SERVER['HTTPS']);
         $this->xhr = isset($this->headers['x-requested-with']) && strtolower($this->headers['x-requested-with']) == 'xmlhttprequest';
+        $this->protocol = $this->secure ? 'https' : 'http';
+
+        $_SERVER['BASE_URL'] = $this->protocol . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
+
+        $this->server = $_SERVER;
+        $this->get = $_GET;
+        $this->post = $this->getPost();
+        $this->headers = $this->getHeaders();
+        $this->cookies = $_COOKIE;
     }
 
     private function getHeaders() {
