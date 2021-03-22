@@ -53,26 +53,26 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>New Item</th>
-								<th>Search Item</th>
-								<th>Quantity</th>
-								<th>Unit</th>
-								<th>Amount</th>
-								<th>+/-</th>
+								<th class="text-truncate">New Item</th>
+								<th class="text-truncate">Search Item</th>
+								<th class="text-truncate">Quantity</th>
+								<th class="text-truncate">Unit</th>
+								<th class="text-truncate">Amount</th>
+								<th class="text-truncate">+/-</th>
 							</tr>
 						</thead>
 						<tbody is="dmx-repeat" id="repeatItems" dmx-bind:repeat="varCounter.value">
 							<td>{{$index + 1}}</td>
-							<td><input type="text" class="form-control" autocomplete="off" name="NewItem[]"></td>
-							<td><input class="form-control" name="ItemID[]" is="dmx-autocomplete" dmx-bind:data="scItemLists.data.getItems" optiontext="subcategory_name" optionvalue="id"></td>
-							<td><input type="number" value="1" step="0.1" id="Quantity" name="Quantity[]" class="form-control" placeholder="Quantity" /></td>
-							<td><select class="form-control" name="UnitID[]" style="width: 100% !important;" dmx-bind:options="scUnits.data.queryUnits" optiontext="UnitName" optionvalue="UnitID"
+							<td class="text-truncate"><input type="text" class="form-control" autocomplete="off" name="NewItem[]"></td>
+							<td class="text-truncate"><input class="form-control" name="ItemID[]" is="dmx-autocomplete" dmx-bind:data="scItemLists.data.getItems" optiontext="subcategory_name" optionvalue="id"></td>
+							<td class="text-truncate"><input type="number" value="1" step="0.1" id="Quantity" name="Quantity[]" class="form-control" placeholder="Quantity" /></td>
+							<td class="text-truncate"><select class="form-control" name="UnitID[]" style="width: 100% !important;" dmx-bind:options="scUnits.data.queryUnits" optiontext="UnitName" optionvalue="UnitID"
 									dmx-bind:value="scItemLists.data.getItems.where(`id`,ItemID.value,'==').values(`default_unit`)">
 									<option value="" selected disabled>Select</option>
 								</select></td>
-							<td><input type="number" id="Price" dmx-bind:value="scItemLists.data.getItems.where(`id`,ItemID.value,'==').values(`default_price`) * Quantity.value" step="0.1" name="Amount[]" class="form-control" placeholder="Amount" />
+							<td class="text-truncate"><input type="number" id="Price" dmx-bind:value="scItemLists.data.getItems.where(`id`,ItemID.value,'==').values(`default_price`) * Quantity.value" step="0.1" name="Amount[]" class="form-control" placeholder="Amount" />
 							</td>
-							<td>
+							<td class="text-truncate">
 								<button class="btn btn-icon btn-light-primary me-2 btn-lg fw-500" dmx-on:click="varCounter.setValue(varCounter.value + 1)">
 									<i class="fa fa-plus"></i>
 								</button>
