@@ -50,6 +50,8 @@ RewriteRule ^/?(?:/)?$ index.php [QSA,NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?emi/list(?:/)?$ index.php [QSA,NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^/?investment/funds(?:/)?$ index.php [QSA,NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?emi/details/([^/]+?)(?:/)?$ index.php?emi_id=$1 [QSA,NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?expense/quick(?:/)?$ index.php [QSA,NC,L]

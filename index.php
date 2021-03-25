@@ -325,6 +325,28 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle d-flex align-items-center">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-wallet menu-fa-icon fa-fw"></i>
+                                    </span>
+                                    <span class="menu-text">Investment</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./investment/funds" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Mutual Funds</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                         <!--end::Menu Nav-->
                     </div>
@@ -566,7 +588,8 @@
                             </div>
                         </div>
                     </div>
-                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
+                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show=""></div>
+                    <div is="dmx-route" id="routeMutualFunds" path="/investment/funds" url="investment/spa_mutualFunds.php" dmx-on:show="scEMIList.load()"></div>
                     <div is="dmx-route" id="routeEmiDetails" path="/emi/details/:emi_id" url="Loan/spa_emiDetails.php" dmx-on:show="scEMIDetails.load()"></div>
                     <div is="dmx-route" id="routeQuickExpense" path="/expense/quick" url="Expense/spa_quickExpense.php"></div>
                     <div is="dmx-route" id="routeFormDetails" path="/form/detail/:form_id" url="Master/spa_formDetails.php"></div>

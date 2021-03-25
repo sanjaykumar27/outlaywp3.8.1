@@ -21,6 +21,12 @@
         },
         {
           "type": "page",
+          "path": "/investment/funds",
+          "id": "routeMutualFunds",
+          "url": "investment/spa_mutualFunds.php"
+        },
+        {
+          "type": "page",
           "path": "/emi/details/:emi_id",
           "id": "routeEmiDetails",
           "url": "Loan/spa_emiDetails.php"
