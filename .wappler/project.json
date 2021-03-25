@@ -36,6 +36,16 @@
       "access": "local",
       "name": "localhost",
       "remoteURL": "http://localhost"
+    },
+    {
+      "access": "ftpes",
+      "name": "Prod",
+      "remoteURL": "https://sanjaychaurasia.tech",
+      "ftpServer": "sanjaychaurasia.tech",
+      "ftpUser": "u348808254",
+      "ftpPassword": "5fc793d6c3cbeac671",
+      "ftpPort": 21,
+      "ftpRemoteFolder": "domains/sanjaychaurasia.tech/public_html"
     }
   ]
 }
