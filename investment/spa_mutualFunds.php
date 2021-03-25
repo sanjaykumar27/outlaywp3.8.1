@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" bootstrap4="local" components="{dmxAutocomplete:{},dmxBootstrap4TableGenerator:{}}" id="MutualFunds" -->
+<!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" bootstrap4="local" components="{dmxAutocomplete:{},dmxBootstrap4TableGenerator:{},dmxCharts:{}}" id="MutualFunds" -->
 <dmx-serverconnect id="scFundDetails" url="dmxConnect/api/Investments/MutualFunds/getFundDetails.php" noload dmx-param:foliocode="varFolioID.value"></dmx-serverconnect>
 <dmx-serverconnect id="scGetFundsList" url="dmxConnect/api/Investments/MutualFunds/getFundsList.php" dmx-param:query="fundQuery.value" noload></dmx-serverconnect>
 <dmx-value id="varFolioID"></dmx-value>
@@ -22,10 +22,10 @@
             </div>
             <button class="btn mt-2 btn-light-danger font-weight-bold float-right small btn-sm rounded-3" dmx-show="scGetFundsList.data.getList.hasItems()" dmx-on:click="scGetFundsList.reset()">Close</button>
         </div>
-        
+
     </div>
     <div class="d-flex">
-    <div class="col-12">
+        <div class="col-12">
             <div class="table-responsive">
                 <table class="table">
                     <tbody dmx-generator="bs4table" dmx-populate="scFundDetails.data.apiFundDetails.data.dataset">
@@ -97,7 +97,7 @@
                             <th>End date</th>
                             <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.end_date"></td>
                         </tr>
-                        
+
                         <tr>
                             <th>Collapse</th>
                             <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.collapse"></td>
@@ -114,6 +114,11 @@
                 </table>
             </div>
 
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="col">
+            <dmx-chart id="chart1" dataset-1="" dmx-bind:data="scFundDetails.data.apiFundDetails.data.dataset.data" labels="scFundDetails.data.apiFundDetails.data.dataset.column_names"></dmx-chart>
         </div>
     </div>
 </div>
