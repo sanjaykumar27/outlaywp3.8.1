@@ -27,7 +27,7 @@
     <div class="d-flex">
     <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-striped table-hover">
+                <table class="table">
                     <tbody dmx-generator="bs4table" dmx-populate="scFundDetails.data.apiFundDetails.data.dataset">
                         <tr>
                             <th>Id</th>
