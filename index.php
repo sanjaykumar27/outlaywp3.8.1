@@ -1,10 +1,10 @@
 <!doctype html>
+sanjay
 <html is="dmx-app" lang="en">
 
 <head>
     <meta name="ac:route" content="/">
-    <meta name="ac:base" content="/exp_latest">
-    <base href="/exp_latest/">
+    <base href="/">
     <script src="dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="utf-8" />
     <title>Expense Manager</title>
