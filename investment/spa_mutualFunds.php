@@ -118,7 +118,7 @@
     </div>
     <div class="d-flex">
         <div class="col">
-            <dmx-chart id="chart1" dataset-1="" dmx-bind:data="scFundDetails.data.apiFundDetails.data.dataset.data" labels="scFundDetails.data.apiFundDetails.data.dataset.column_names"></dmx-chart>
+            <dmx-chart id="chart1" dmx-bind:data="scFundDetails.data.apiFundDetails" dataset-1:value="dataset.data"></dmx-chart>
         </div>
     </div>
 </div>
