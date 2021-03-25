@@ -169,6 +169,21 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "arrGraphData": {
+      "meta": [
+        {
+          "type": "array",
+          "name": "$value",
+          "sub": [
+            {
+              "type": "text",
+              "name": "$value"
+            }
+          ]
+        }
+      ],
+      "outputType": "array"
     }
   }
 });

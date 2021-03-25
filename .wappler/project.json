@@ -26,7 +26,7 @@
     }
   ],
   "projectServerModel": "PHP",
-  "activeTarget": "localhost",
+  "activeTarget": "Prod",
   "useRouting": true,
   "addBase": true,
   "routingHandler": "apache",
