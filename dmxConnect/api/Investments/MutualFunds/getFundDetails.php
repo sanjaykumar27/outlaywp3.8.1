@@ -287,7 +287,6 @@ $app->define(<<<'JSON'
             ]
           }
         },
-        "output": true,
         "meta": [
           {
             "name": "$index",
