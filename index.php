@@ -12,7 +12,7 @@ $app->exec(<<<'JSON'
 		{
 			"module": "auth",
 			"action": "restrict",
-			"options": {"permissions":"Active","loginUrl":"/auth","forbiddenUrl":"/auth","provider":"SecurityCS"}
+			"options": {"permissions":"Active","loginUrl":"login.html","forbiddenUrl":"login.html","provider":"SecurityCS"}
 		}
 	]
 }
