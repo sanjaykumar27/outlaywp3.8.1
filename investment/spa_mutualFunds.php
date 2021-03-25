@@ -22,7 +22,10 @@
             </div>
             <button class="btn mt-2 btn-light-danger font-weight-bold float-right small btn-sm rounded-3" dmx-show="scGetFundsList.data.getList.hasItems()" dmx-on:click="scGetFundsList.reset()">Close</button>
         </div>
-        <div class="col-12">
+        
+    </div>
+    <div class="d-flex">
+    <div class="col-12">
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <tbody dmx-generator="bs4table" dmx-populate="scFundDetails.data.apiFundDetails.data.dataset">
@@ -94,10 +97,7 @@
                             <th>End date</th>
                             <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.end_date"></td>
                         </tr>
-                        <tr>
-                            <th>Data</th>
-                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.data"></td>
-                        </tr>
+                        
                         <tr>
                             <th>Collapse</th>
                             <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.collapse"></td>
