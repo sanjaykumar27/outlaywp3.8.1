@@ -135,5 +135,40 @@ dmx.config({
       ],
       "outputType": "array"
     }
+  },
+  "MutualFunds": {
+    "repeatFunds": {
+      "meta": [
+        {
+          "name": "fund_id",
+          "type": "text"
+        },
+        {
+          "name": "code",
+          "type": "number"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "refreshed_at",
+          "type": "datetime"
+        },
+        {
+          "name": "from_date",
+          "type": "date"
+        },
+        {
+          "name": "to_date",
+          "type": "date"
+        }
+      ],
+      "outputType": "array"
+    }
   }
 });

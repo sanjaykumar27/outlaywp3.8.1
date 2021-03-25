@@ -101,3 +101,9 @@ body {
 .menu-fa-icon {
   color: #adade4 !important;
 }
+
+
+.mutual-fund-list {
+  max-height: 45vh !important;
+  overflow-y: auto;
+}
