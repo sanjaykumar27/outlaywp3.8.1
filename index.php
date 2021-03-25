@@ -424,7 +424,7 @@ sanjay
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Subheader-->
-                    <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/exp_latest/index.php'">
+                    <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/'">
                         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
                             <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <!--begin::Info-->

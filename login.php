@@ -2,7 +2,6 @@
 <html>
 
 <head>
-	<meta name="ac:base" content="/exp_latest">
 	<link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
 
 	<script src="dmxAppConnect/dmxAppConnect.js"></script>
@@ -12,7 +11,7 @@
 	<script src="dmxAppConnect/dmxBrowser/dmxBrowser.js" defer=""></script>
 
 	<meta name="ac:route" content="/auth">
-	<base href="/exp_latest/">
+	<base href="/">
 
 	<meta charset="utf-8" />
 	<title>OUTLAY | Login Page 1</title>

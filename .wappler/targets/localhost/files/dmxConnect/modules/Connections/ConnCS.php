@@ -7,7 +7,7 @@ $exports = <<<'JSON'
   "options": {
     "server": "mysql",
     "databaseType": "MySQL",
-    "connectionString": "mysql:host=localhost;sslverify=false;dbname=mindfuli_expense;user=root;password=Sanjay@123;charset=utf8",
+    "connectionString": "mysql:host=localhost;sslverify=false;dbname=u348808254_exp;user=u348808254_root;password=|IqYTq?3;charset=utf8",
     "meta": false
   }
 }
