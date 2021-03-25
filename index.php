@@ -55,8 +55,12 @@
     <script src="js/custom.js" defer=""></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="manifest.json">
-    <meta name="apple-mobile-web-app-status-bar" content="#663259">
-    <meta name="theme-color" content="#663259">
+    <meta name="apple-mobile-web-app-status-bar" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/android/android-launchericon-144-144.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/android/android-launchericon-192-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/android/android-launchericon-512-512.png">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="dmxAppConnect/dmxPreloader/dmxPreloader.css" />
     <script src="dmxAppConnect/dmxPreloader/dmxPreloader.js" defer=""></script>

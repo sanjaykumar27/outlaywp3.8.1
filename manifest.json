@@ -6,8 +6,8 @@
   "scope": "/",
   "display": "standalone",
   "start_url": "https://sanjaychaurasia.tech",
-  "background_color": "#000000",
-  "theme_color": "transparent",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "orientation": "any",
   "prefer_related_applications": "false",
   "icons": [
