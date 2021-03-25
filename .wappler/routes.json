@@ -6,7 +6,7 @@
     },
     {
       "path": "/auth",
-      "url": "/login.php"
+      "url": "/login.html"
     },
     {
       "path": "/",

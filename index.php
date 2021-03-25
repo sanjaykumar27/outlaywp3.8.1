@@ -1,3 +1,25 @@
+<?php 
+
+require('dmxConnectLib/dmxConnect.php');
+
+$app = new \lib\App();
+
+$app->exec(<<<'JSON'
+{
+	"steps": [
+		"Connections/ConnCS",
+		"SecurityProviders/SecurityCS",
+		{
+			"module": "auth",
+			"action": "restrict",
+			"options": {"permissions":"Active","loginUrl":"/auth","forbiddenUrl":"/auth","provider":"SecurityCS"}
+		}
+	]
+}
+JSON
+, TRUE)
+?>
+
 <!doctype html>
 <html is="dmx-app" lang="en">
 
@@ -90,7 +112,8 @@
 
     <dmx-serverconnect id="scChangeTheme" noload="noload" url="dmxConnect/api/Other/Theme/ColorTheme.php" dmx-on:success="scGetTheme.load();notifies1.success('Theme Changed')"></dmx-serverconnect>
     <dmx-smooth-scroll id="scroll1"></dmx-smooth-scroll>
-    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpenseDashboard.php" onsuccess="MonthlyGraph();" dmx-on:unauthorized="browser1.goto('auth')"></dmx-serverconnect>
+    <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpenseDashboard.php" onsuccess="MonthlyGraph();"></dmx-serverconnect>
+    <!-- dmx-on:unauthorized="browser1.goto('auth')" -->
     <dmx-serverconnect id="scMostPurchasedItem" url="dmxConnect/api/Dashboard/getTop5Items.php" onsuccess="MonthlyGraph();"></dmx-serverconnect>
     <dmx-serverconnect id="scLogout" url="dmxConnect/api/AccessControl/logout.php" noload="noload"></dmx-serverconnect>
     <!-- <dmx-serverconnect id="scVerify" url="dmxConnect/api/AccessControl/scVerify.php" dmx-on:unauthorized="browser1.goto('login.php')"></dmx-serverconnect> -->
