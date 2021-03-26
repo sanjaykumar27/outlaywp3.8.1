@@ -115,29 +115,6 @@ JSON
         dmx-show="scVerify.state.executing || scMostPurchasedItem.state.executing || scMonthlyReport.state.executing || routeExpenseList.scExpenseList.state.executing || routeExpenseList.scGetItems.state.executing || routeExpenseList.scCategories.state.executing || routeCreateExpense.scItemLists.state.executing || routeCreateExpense.scPaymentMethods.state.executing || routeCreateExpense.scUnits.state.executing || routeCreateExpense.scCategories.state.executing || routeCreateExpense.scInvoiceID.state.executing || scChangeTheme.state.executing || routeExpenseList.scGenerateGraph.state.executing || routeAccountList.scGetAccountList.state.executing || routeAccounDetails.scGetAccountDetail.state.executing">
     </dmx-preloader>
     <div is="dmx-browser" id="browser1"></div>
-    <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
-        <a href="javascript:void(0)">
-            <img alt="Logo" src="assets/media/logos/logo-light.png" />
-        </a>
-        <div class="d-flex align-items-center">
-            <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
-                <span></span>
-            </button>
-            <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
-                <span class="svg-icon svg-icon-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <polygon points="0 0 24 0 24 24 0 24" />
-                            <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                            <path
-                                d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
-                                fill="#000000" fill-rule="nonzero" />
-                        </g>
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </div>
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-row flex-column-fluid page">
             <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
@@ -337,53 +314,9 @@ JSON
                 </div>
             </div>
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-                <div id="kt_header" class="header header-fixed">
-                    <div class="container-fluid d-flex align-items-stretch justify-content-between">
-                        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-                        </div>
-                        <div class="topbar">
-                            <div class="dropdown">
-                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
-                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
-                                        <img class="h-20px w-20px rounded-sm" src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/flags/226-united-states.svg" alt="" />
-                                    </div>
-                                </div>
-                                <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
-                                    <ul class="navi navi-hover py-4">
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link" dmx-on:click="scChangeTheme.load({main_theme: 'Dark'})">
-                                                <span class="symbol symbol-20 mr-3">
-                                                    <img src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/flags/226-united-states.svg" alt="" />
-                                                </span>
-                                                <span class="navi-text">Dark</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item active">
-                                            <a href="#" class="navi-link" dmx-on:click="scChangeTheme.load({main_theme: 'Light'})">
-                                                <span class="symbol symbol-20 mr-3">
-                                                    <img src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/flags/128-spain.svg" alt="" />
-                                                </span>
-                                                <span class="navi-text">Light</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="topbar-item">
-                                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
-                                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
-                                    <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                                        <span class="symbol-label font-size-h5 font-weight-bold">S</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/'">
-                        <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                        <div class="subheader py-2 py-lg-4 mr-3 subheader-solid" id="kt_subheader">
                             <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                                 <div class="d-flex align-items-center flex-wrap mr-2">
                                     <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Dashboard</h5>
@@ -561,18 +494,29 @@ JSON
                 </div>
             </div>
             <div class="bg-white bottom-0 d-flex  position-fixed py-2 w-100" id="kt_footer">
-                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
-                    <div class="nav nav-dark">
-                        <a href="javascript:void(0)" class="nav-link pl-0 pr-5">About</a>
-                        <a href="javascript:void(0)" class="nav-link pl-0 pr-5">Team</a>
-                        <a href="javascript:void(0)" class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">Contact</a>
-                        <!-- <button class="btn p-0 burger-icon burger-icon-left" >
-                        <span></span>
-                    </button> -->
+                <div class="container-fluid d-flex justify-content-end">
+                    <div class="align-items-center d-flex justify-content-between nav nav-dark">
+                        <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                            <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
+                            <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sanjay</span>
+                            <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+                                <span class="symbol-label font-size-h5 font-weight-bold">S</span>
+                            </span>
+                        </div>
                     </div>
+                    <a href="javascript:void(0)" class="btn btn-icon btn-clean btn-lg mr-3" id="kt_aside_mobile_toggle">
+                        <i class="fas fa-bars text-dark"></i>
+                    </a>
+                    <a href="javascript:void(0)" dmx-show="scGetTheme.data.getTheme.main_theme == 'Light'" class="btn btn-icon btn-clean btn-lg" dmx-on:click="scChangeTheme.load({main_theme: 'Dark'})">
+                        <i class="fas fa-circle text-dark"></i>
+                    </a>
+                    <a href="javascript:void(0)" dmx-show="scGetTheme.data.getTheme.main_theme == 'Dark'" class="btn btn-icon btn-clean btn-lg" dmx-on:click="scChangeTheme.load({main_theme: 'Light'})">
+                        <i class="fas fa-circle text-white"></i>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div id="kt_scrolltop" class="scrolltop">
         <span class="svg-icon">
