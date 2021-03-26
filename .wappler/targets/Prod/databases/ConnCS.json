@@ -1,0 +1,192 @@
+{
+  "schema": {
+    "tables": {
+      "fixed_deposits": {
+        "db": {}
+      },
+      "theme": {
+        "db": {}
+      },
+      "lic_master": {
+        "db": {}
+      },
+      "target_master": {
+        "db": {}
+      },
+      "loan_details": {
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "loan_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "due_date": {
+            "db": {
+              "type": "date",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "paid_on": {
+            "db": {
+              "type": "date",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "loan_amount": {
+            "db": {
+              "type": "float",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "integer",
+              "default": "0"
+            }
+          }
+        }
+      },
+      "loan_master": {
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "userid": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "loan_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "starting_date": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "ending_date": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "total_amount": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "no_of_emi": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "interest_amount": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "paid_via": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "cash_paid": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "integer",
+              "default": "1"
+            }
+          }
+        }
+      },
+      "userlogged": {
+        "db": {}
+      },
+      "user_type": {
+        "db": {}
+      },
+      "nnnnn___money_manager": {
+        "db": {}
+      },
+      "user": {
+        "db": {}
+      },
+      "form_data": {
+        "db": {}
+      },
+      "amfi_metadata": {
+        "db": {}
+      },
+      "form_master": {
+        "db": {}
+      },
+      "collections": {
+        "db": {}
+      },
+      "collection_type": {
+        "db": {}
+      },
+      "categories": {
+        "db": {}
+      },
+      "form_fields": {
+        "db": {}
+      },
+      "account_transaction": {
+        "db": {}
+      },
+      "target_transaction": {
+        "db": {}
+      },
+      "quick_expense": {
+        "db": {}
+      },
+      "account_master": {
+        "db": {}
+      },
+      "sub_categories": {
+        "db": {}
+      },
+      "expense": {
+        "db": {}
+      },
+      "lic_premiums": {
+        "db": {}
+      },
+      "form_values": {
+        "db": {}
+      },
+      "borrowed_master": {
+        "db": {}
+      }
+    },
+    "views": {}
+  }
+}
