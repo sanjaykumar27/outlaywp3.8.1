@@ -354,7 +354,7 @@ JSON
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
                                             <div class="card-body p-5">
-                                                <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-2 text-hover-state-dark d-block">This Month Expense</a>
+                                                <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-2 text-hover-state-dark d-block">Current Month</a>
                                                 <div class="font-weight-bold  font-size-sm">
                                                     <span class="font-size-h1 mr-2 font-weight-bolder ">₹ {{scCurrentMonthTotal.data.Total.TotalAmount}}</span></div>
                                             </div>
