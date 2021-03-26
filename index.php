@@ -657,8 +657,7 @@ JSON
     </div>
     <!--end::Main-->
     <!-- begin::User Panel-->
-    <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
-        <!--begin::Header-->
+    <!-- <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
         <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
             <h3 class="font-weight-bold m-0">User Profile
                 <small class="text-muted font-size-sm ml-2">12 messages</small></h3>
@@ -666,10 +665,7 @@ JSON
                 <i class="ki ki-close icon-xs text-muted"></i>
             </a>
         </div>
-        <!--end::Header-->
-        <!--begin::Content-->
         <div class="offcanvas-content pr-5 mr-n5">
-            <!--begin::Header-->
             <div class="d-flex align-items-center mt-5">
                 <div class="symbol symbol-100 mr-5">
                     <div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>
@@ -683,7 +679,6 @@ JSON
                             <span class="navi-link p-0 pb-2">
                                 <span class="navi-icon mr-1">
                                     <span class="svg-icon svg-icon-lg svg-icon-primary">
-                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Communication/Mail-notification.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24" />
@@ -693,7 +688,6 @@ JSON
                                                 <circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5" />
                                             </g>
                                         </svg>
-
                                     </span>
                                 </span>
                                 <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
@@ -703,19 +697,14 @@ JSON
                     </div>
                 </div>
             </div>
-            <!--end::Header-->
-            <!--begin::Separator-->
             <div class="separator separator-dashed mt-8 mb-5"></div>
-            <!--end::Separator-->
-            <!--begin::Nav-->
             <div class="navi navi-spacer-x-0 p-0">
-                <!--begin::Item-->
                 <a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
                     <div class="navi-link">
                         <div class="symbol symbol-40 bg-light mr-3">
                             <div class="symbol-label">
                                 <span class="svg-icon svg-icon-md svg-icon-success">
-                                    <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/General/Notification2.svg-->
+
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <rect x="0" y="0" width="24" height="24" />
@@ -736,22 +725,13 @@ JSON
                         </div>
                     </div>
                 </a>
-
             </div>
-            <!--end::Nav-->
-            <!--begin::Separator-->
             <div class="separator separator-dashed my-7"></div>
-            <!--end::Separator-->
-            <!--begin::Notifications-->
             <div>
-                <!--begin:Heading-->
                 <h5 class="mb-5">Recent Notifications</h5>
-                <!--end:Heading-->
-                <!--begin::Item-->
                 <div class="d-flex align-items-center bg-light-warning rounded p-5 gutter-b">
                     <span class="svg-icon svg-icon-warning mr-5">
                         <span class="svg-icon svg-icon-lg">
-                            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Home/Library.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24" />
@@ -772,10 +752,9 @@ JSON
                 </div>
 
             </div>
-            <!--end::Notifications-->
         </div>
-        <!--end::Content-->
-    </div>
+
+    </div> -->
     <!--end::Chat Panel-->
     <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop">
