@@ -37,18 +37,13 @@ JSON
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/moment.js/2/moment-with-locales.min.js"></script>
     <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundlec7e5.css" rel="stylesheet" type="text/css" />
-    <!--end::Page Vendors Styles-->
-    <!--begin::Global Theme Styles(used by all pages)-->
     <link href="assets/plugins/global/plugins.bundlec7e5.css" rel="stylesheet" type="text/css" />
     <link href="assets/plugins/custom/prismjs/prismjs.bundlec7e5.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundlec7e5.css" rel="stylesheet" type="text/css" />
-    <!--end::Global Theme Styles-->
-    <!--begin::Layout Themes(used by all pages)-->
     <link href="assets/css/themes/layout/header/base/lightc7e5.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/themes/layout/header/menu/lightc7e5.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/themes/layout/brand/darkc7e5.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/themes/layout/aside/darkc7e5.css" rel="stylesheet" type="text/css" />
-    <!--end::Layout Themes-->
     <link rel="shortcut icon" href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
     <script src="dmxAppConnect/dmxRouting/dmxRouting.js" defer=""></script>
     <script src="dmxAppConnect/dmxStateManagement/dmxStateManagement.js" defer=""></script>
@@ -63,8 +58,6 @@ JSON
     <script src="dmxAppConnect/dmxDropzone/dmxDropzone.js" defer=""></script>
     <link rel="stylesheet" href="dmxAppConnect/dmxNotifications/dmxNotifications.css" />
     <script src="dmxAppConnect/dmxNotifications/dmxNotifications.js" defer=""></script>
-
-
     <script src="dmxAppConnect/dmxCharts/Chart.min.js" defer=""></script>
     <script src="dmxAppConnect/dmxCharts/dmxCharts.js" defer=""></script>
     <link rel="stylesheet" href="dmxAppConnect/dmxDatePicker/daterangepicker.min.css" />
@@ -88,7 +81,6 @@ JSON
     <script src="dmxAppConnect/dmxPreloader/dmxPreloader.js" defer=""></script>
     <script src="dmxAppConnect/dmxSmoothScroll/dmxSmoothScroll.js" defer=""></script>
     <script src="dmxAppConnect/dmxBootstrap4Alert/dmxBootstrap4Alert.js" defer=""></script>
-
     <link rel="stylesheet" href="dmxAppConnect/dmxAutocomplete/dmxAutocomplete.css" />
     <script src="dmxAppConnect/dmxAutocomplete/dmxAutocomplete.js" defer=""></script>
     <script src="dmxAppConnect/dmxBootstrap4Navigation/dmxBootstrap4Navigation.js" defer=""></script>
@@ -99,17 +91,14 @@ JSON
 <body id="index" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
     <dmx-notifications id="notif"></dmx-notifications>
     <dmx-serverconnect id="scCurrentMonthTotal" url="dmxConnect/api/Dashboard/CurrentMonth.php" dmx-param:crstartdate="varStartDate.value" dmx-param:crenddate="varEndDate.value"></dmx-serverconnect>
-
     <dmx-value id="varPreviousLast" dmx-bind:value="'<?php echo date('Y-m-d', mktime(0, 0, 0, date('m'), 0)) ?>'"></dmx-value>
     <dmx-value id="varPreviousFirst" dmx-bind:value="'<?php echo date('Y-m-d', mktime(0, 0, 0, date('m')-1, 1))?>'"></dmx-value>
     <dmx-value id="varStartDate" dmx-bind:value="'<?php echo date('Y-m-01') ?>'"></dmx-value>
     <dmx-value id="varEndDate" dmx-bind:value="'<?php echo date('Y-m-t') ?>'"></dmx-value>
-
     <div id="crTheme" is="dmx-if" dmx-bind:condition="scGetTheme.data.getTheme.main_theme == 'Dark'">
         <link href="assets/css/dark.css" rel="stylesheet" type="text/css" />
     </div>
     <dmx-serverconnect id="scGetTheme" url="dmxConnect/api/AccessControl/getTheme.php"></dmx-serverconnect>
-
     <dmx-serverconnect id="scChangeTheme" noload="noload" url="dmxConnect/api/Other/Theme/ColorTheme.php" dmx-on:success="scGetTheme.load();notifies1.success('Theme Changed')"></dmx-serverconnect>
     <dmx-smooth-scroll id="scroll1"></dmx-smooth-scroll>
     <dmx-serverconnect id="scMonthlyReport" url="dmxConnect/api/Dashboard/getMonthlyExpenseDashboard.php" onsuccess="MonthlyGraph();"></dmx-serverconnect>
@@ -127,27 +116,15 @@ JSON
     </dmx-preloader>
     <div is="dmx-browser" id="browser1"></div>
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
-        <!--begin::Logo-->
         <a href="javascript:void(0)">
             <img alt="Logo" src="assets/media/logos/logo-light.png" />
         </a>
-        <!--end::Logo-->
-        <!--begin::Toolbar-->
         <div class="d-flex align-items-center">
-            <!--begin::Aside Mobile Toggle-->
-            <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
-                <span></span>
-            </button>
-            <!--end::Aside Mobile Toggle-->
-            <!--begin::Header Menu Mobile Toggle-->
             <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
                 <span></span>
             </button>
-            <!--end::Header Menu Mobile Toggle-->
-            <!--begin::Topbar Mobile Toggle-->
             <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
                 <span class="svg-icon svg-icon-xl">
-                    <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/General/User.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <polygon points="0 0 24 0 24 24 0 24" />
@@ -157,30 +134,19 @@ JSON
                                 fill="#000000" fill-rule="nonzero" />
                         </g>
                     </svg>
-
                 </span>
             </button>
-            <!--end::Topbar Mobile Toggle-->
         </div>
-        <!--end::Toolbar-->
     </div>
-    <!--end::Header Mobile-->
     <div class="d-flex flex-column flex-root">
-        <!--begin::Page-->
         <div class="d-flex flex-row flex-column-fluid page">
-            <!--begin::Aside-->
             <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
-                <!--begin::Brand-->
                 <div class="brand flex-column-auto" id="kt_brand">
-                    <!--begin::Logo-->
                     <a href="javascript:void(0)" class="brand-logo">
                         <img alt="Logo" src="assets/media/logos/logo-light.png" />
                     </a>
-                    <!--end::Logo-->
-                    <!--begin::Toggle-->
                     <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
                         <span class="svg-icon svg-icon svg-icon-xl">
-                            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Navigation/Angle-double-left.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <polygon points="0 0 24 0 24 24 0 24" />
@@ -192,17 +158,11 @@ JSON
                                         fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" />
                                 </g>
                             </svg>
-
                         </span>
                     </button>
-                    <!--end::Toolbar-->
                 </div>
-                <!--end::Brand-->
-                <!--begin::Aside Menu-->
                 <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
-                    <!--begin::Menu Container-->
                     <div id="kt_aside_menu" class="aside-menu" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
-                        <!--begin::Menu Nav-->
                         <ul class="menu-nav">
                             <li class="menu-item" aria-haspopup="true">
                                 <a href="./" class="menu-link d-flex align-items-center">
@@ -216,7 +176,6 @@ JSON
                                 <h4 class="h6 text-dark-65">MAIN MENU</h4>
                                 <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                             </li>
-
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle d-flex align-items-center">
                                     <span class="menu-icon">
@@ -374,38 +333,23 @@ JSON
                                 </div>
                             </li>
                         </ul>
-                        <!--end::Menu Nav-->
                     </div>
-                    <!--end::Menu Container-->
                 </div>
-                <!--end::Aside Menu-->
             </div>
-            <!--end::Aside-->
-            <!--begin::Wrapper-->
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-                <!--begin::Header-->
                 <div id="kt_header" class="header header-fixed">
-                    <!--begin::Container-->
                     <div class="container-fluid d-flex align-items-stretch justify-content-between">
-                        <!--begin::Header Menu Wrapper-->
                         <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
                         </div>
-                        <!--end::Header Menu Wrapper-->
-                        <!--begin::Topbar-->
                         <div class="topbar">
                             <div class="dropdown">
-                                <!--begin::Toggle-->
                                 <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
                                     <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                                         <img class="h-20px w-20px rounded-sm" src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/flags/226-united-states.svg" alt="" />
                                     </div>
                                 </div>
-                                <!--end::Toggle-->
-                                <!--begin::Dropdown-->
                                 <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
-                                    <!--begin::Nav-->
                                     <ul class="navi navi-hover py-4">
-                                        <!--begin::Item-->
                                         <li class="navi-item">
                                             <a href="#" class="navi-link" dmx-on:click="scChangeTheme.load({main_theme: 'Dark'})">
                                                 <span class="symbol symbol-20 mr-3">
@@ -414,8 +358,6 @@ JSON
                                                 <span class="navi-text">Dark</span>
                                             </a>
                                         </li>
-
-                                        <!--begin::Item-->
                                         <li class="navi-item active">
                                             <a href="#" class="navi-link" dmx-on:click="scChangeTheme.load({main_theme: 'Light'})">
                                                 <span class="symbol symbol-20 mr-3">
@@ -425,12 +367,8 @@ JSON
                                             </a>
                                         </li>
                                     </ul>
-                                    <!--end::Nav-->
                                 </div>
-                                <!--end::Dropdown-->
                             </div>
-                            <!--end::Languages-->
-                            <!--begin::User-->
                             <div class="topbar-item">
                                 <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                     <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
@@ -440,20 +378,13 @@ JSON
                                     </span>
                                 </div>
                             </div>
-                            <!--end::User-->
                         </div>
-                        <!--end::Topbar-->
                     </div>
-                    <!--end::Container-->
                 </div>
-                <!--end::Header-->
-                <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Subheader-->
                     <div id="crDashboardItems" is="dmx-if" dmx-bind:condition="browser1.location.pathname == '/'">
                         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
                             <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-                                <!--begin::Info-->
                                 <div class="d-flex align-items-center flex-wrap mr-2">
                                     <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Dashboard</h5>
                                 </div>
@@ -463,8 +394,6 @@ JSON
                                 </div>
                             </div>
                         </div>
-                        <!--end::Subheader-->
-
                         <div class="d-flex flex-column-fluid pt-2">
                             <div class="container-fluid">
                                 <div class="row">
@@ -623,143 +552,30 @@ JSON
                     <div is="dmx-route" id="routeFormManagement" path="/form-management" url="Master/spa_formList.php" dmx-on:show="scFormList.load()"></div>
                     <div is="dmx-route" id="routeAccountList" path="/account/list" url="Master/spa_accountList.php" dmx-on:show="scGetAccountList.load();"></div>
                     <div is="dmx-route" id="routeAccounDetails" path="/account/details/:accountid" url="Master/spa_accountDetails.php" dmx-on:show="scGetAccountDetail.load();"></div>
-                    <!--begin::Entry-->
-                    <!--begin::Container Routes-->
                     <div is="dmx-route" id="routeDashboard" path="/dashboard" url="spa_dashboard.php" onshow="MonthlyGraph();"></div>
                     <div is="dmx-route" id="routeCreateExpense" path="/expense/create" url="Expense/spa_createExpense.php" dmx-on:show="scInvoiceID.load();scUnits.load();scAccountList.load();scItemLists.load();scPaymentMethods.load()"></div>
                     <div is="dmx-route" id="routeTarget" path="/targetList" url="Other/spa_targetList.php" dmx-on:show="scTargetList.load()"></div>
                     <div is="dmx-route" id="routeExpenseList" path="/expense/list" url="Expense/spa_expenseList.php" dmx-on:show="scExpenseList.load({})">
                     </div>
                     <div is="dmx-route" id="routeItems" path="/master/items" url="Master/spa_items.php" dmx-on:show="scItemList.load();scCategories.load()"></div>
-                    <!--end::Entry-->
                 </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
-
-
             </div>
-
             <div class="bg-white bottom-0 d-flex  position-fixed py-2 w-100" id="kt_footer">
                 <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-end">
-
                     <div class="nav nav-dark">
                         <a href="javascript:void(0)" class="nav-link pl-0 pr-5">About</a>
                         <a href="javascript:void(0)" class="nav-link pl-0 pr-5">Team</a>
-                        <a href="javascript:void(0)" class="nav-link pl-0 pr-0">Contact</a>
+                        <a href="javascript:void(0)" class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">Contact</a>
+                        <!-- <button class="btn p-0 burger-icon burger-icon-left" >
+                        <span></span>
+                    </button> -->
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-    <!--end::Main-->
-    <!-- begin::User Panel-->
-    <!-- <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
-        <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-            <h3 class="font-weight-bold m-0">User Profile
-                <small class="text-muted font-size-sm ml-2">12 messages</small></h3>
-            <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
-                <i class="ki ki-close icon-xs text-muted"></i>
-            </a>
-        </div>
-        <div class="offcanvas-content pr-5 mr-n5">
-            <div class="d-flex align-items-center mt-5">
-                <div class="symbol symbol-100 mr-5">
-                    <div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>
-                    <i class="symbol-badge bg-success"></i>
-                </div>
-                <div class="d-flex flex-column">
-                    <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
-                    <div class="text-muted mt-1">Application Developer</div>
-                    <div class="navi mt-2">
-                        <a href="#" class="navi-item">
-                            <span class="navi-link p-0 pb-2">
-                                <span class="navi-icon mr-1">
-                                    <span class="svg-icon svg-icon-lg svg-icon-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="0" y="0" width="24" height="24" />
-                                                <path
-                                                    d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                                    fill="#000000" />
-                                                <circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5" />
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </span>
-                                <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
-                            </span>
-                        </a>
-                        <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
-                    </div>
-                </div>
-            </div>
-            <div class="separator separator-dashed mt-8 mb-5"></div>
-            <div class="navi navi-spacer-x-0 p-0">
-                <a href="custom/apps/user/profile-1/personal-information.html" class="navi-item">
-                    <div class="navi-link">
-                        <div class="symbol symbol-40 bg-light mr-3">
-                            <div class="symbol-label">
-                                <span class="svg-icon svg-icon-md svg-icon-success">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24" />
-                                            <path
-                                                d="M13.2070325,4 C13.0721672,4.47683179 13,4.97998812 13,5.5 C13,8.53756612 15.4624339,11 18.5,11 C19.0200119,11 19.5231682,10.9278328 20,10.7929675 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L13.2070325,4 Z"
-                                                fill="#000000" />
-                                            <circle fill="#000000" opacity="0.3" cx="18.5" cy="5.5" r="2.5" />
-                                        </g>
-                                    </svg>
-
-                                </span>
-                            </div>
-                        </div>
-                        <div class="navi-text">
-                            <div class="font-weight-bold">My Profile</div>
-                            <div class="text-muted">Account settings and more
-                                <span class="label label-light-danger label-inline font-weight-bold">update</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="separator separator-dashed my-7"></div>
-            <div>
-                <h5 class="mb-5">Recent Notifications</h5>
-                <div class="d-flex align-items-center bg-light-warning rounded p-5 gutter-b">
-                    <span class="svg-icon svg-icon-warning mr-5">
-                        <span class="svg-icon svg-icon-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <path
-                                        d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z"
-                                        fill="#000000" />
-                                    <rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-                                </g>
-                            </svg>
-
-                        </span>
-                    </span>
-                    <div class="d-flex flex-column flex-grow-1 mr-2">
-                        <a href="#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose persuade</a>
-                        <span class="text-muted font-size-sm">Due in 2 Days</span>
-                    </div>
-                    <span class="font-weight-bolder text-warning py-1 font-size-lg">+28%</span>
-                </div>
-
-            </div>
-        </div>
-
-    </div> -->
-    <!--end::Chat Panel-->
-    <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop">
         <span class="svg-icon">
-            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Navigation/Up-2.svg-->
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <polygon points="0 0 24 0 24 24 0 24" />
@@ -769,11 +585,8 @@ JSON
                         fill="#000000" fill-rule="nonzero" />
                 </g>
             </svg>
-
         </span>
     </div>
-
-    <!--begin::Global Config(global config for global JS scripts)-->
     <script>
         var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };
         $(function () {
