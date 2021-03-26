@@ -4,6 +4,8 @@ RewriteEngine On
 <IfModule mod_negotiation.c>
     Options -MultiViews
 </IfModule>
+ewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://sanjaychaurasia.tech/$1 [R,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?mobile-login(?:/)?$ mobileui/login.php [QSA,NC,L]
 RewriteCond %{REQUEST_FILENAME} !-f
