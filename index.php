@@ -330,10 +330,10 @@ JSON
                         <div class="d-flex flex-column-fluid pt-2">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-xl-3">
+                                    <div class="col-xl-3 col-6">
                                         <div class="card card-custom bg-success card-stretch gutter-b">
-                                            <div class="card-body ">
-                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Balance</a>
+                                            <div class="card-body p-5">
+                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-2 text-hover-state-dark d-block">Balance</a>
                                                 <div class="font-weight-bold text-white font-size-sm">
                                                     <span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</span></div>
                                             </div>
@@ -350,30 +350,30 @@ JSON
                                             </div>
                                         </div>
                                     </div> -->
-                                    <div class="col-lg-3 col-12 pr-2">
+                                    <div class="col-lg-3 col-6 pr-2">
                                         <div class="card card-custom bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-1.svg)">
-                                            <div class="card-body">
-                                                <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-4 text-hover-state-dark d-block">This Month Expense</a>
+                                            <div class="card-body p-5">
+                                                <a href="#" class="card-title font-weight-bolder  font-size-h6 mb-2 text-hover-state-dark d-block">This Month Expense</a>
                                                 <div class="font-weight-bold  font-size-sm">
                                                     <span class="font-size-h1 mr-2 font-weight-bolder ">₹ {{scCurrentMonthTotal.data.Total.TotalAmount}}</span></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-12">
+                                    <div class="col-xl-3 col-6">
                                         <div class="card card-custom bg-info card-stretch gutter-b">
-                                            <div class="card-body">
-                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-4 text-hover-state-dark d-block">Investment</a>
+                                            <div class="card-body p-5">
+                                                <a href="#" class="card-title font-weight-bolder text-white font-size-h6 mb-2 text-hover-state-dark d-block">Investment</a>
                                                 <div class="font-weight-bold text-white font-size-sm">
                                                     <span class="font-size-h1 mr-2 font-weight-bolder ">₹ 54,000</span></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-12">
+                                    <div class="col-lg-3 col-6">
                                         <div class="card card-custom bg-danger bgi-no-repeat card-stretch gutter-b"
                                             style="background-position: right top; background-size: 30% auto; background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/svg/shapes/abstract-3.svg)">
-                                            <div class="card-body">
-                                                <a href="#" class="card-title text-white font-weight-bolder font-size-h6 mb-4 text-hover-state-dark d-block ">Liabilities</a>
+                                            <div class="card-body p-5">
+                                                <a href="#" class="card-title text-white font-weight-bolder font-size-h6 mb-2 text-hover-state-dark d-block ">Liabilities</a>
                                                 <div class="font-weight-bold text-muted font-size-sm">
                                                     <span class="text-white font-weight-bolder font-size-h1 mr-2">₹ 1,50,000</span></div>
                                                 <div class="progress progress-xs mt-7 bg-white-o-90">
