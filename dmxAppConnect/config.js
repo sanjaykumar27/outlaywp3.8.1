@@ -185,5 +185,40 @@ dmx.config({
       ],
       "outputType": "array"
     }
+  },
+  "QuickExense": {
+    "repeatExpenseList": {
+      "meta": [
+        {
+          "name": "ID",
+          "type": "number"
+        },
+        {
+          "name": "Date",
+          "type": "text"
+        },
+        {
+          "name": "Account",
+          "type": "text"
+        },
+        {
+          "name": "Category",
+          "type": "text"
+        },
+        {
+          "name": "SubCategory",
+          "type": "text"
+        },
+        {
+          "name": "Remark",
+          "type": "text"
+        },
+        {
+          "name": "Amount",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
+    }
   }
 });

@@ -133,7 +133,57 @@
         "db": {}
       },
       "nnnnn___money_manager": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "ID": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "Date": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "Account": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "Category": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "SubCategory": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "Remark": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "Amount": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          }
+        }
       },
       "user": {
         "db": {}
@@ -166,7 +216,60 @@
         "db": {}
       },
       "quick_expense": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "expense_id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "item_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "amount": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "purchase_date": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "invoice_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "reciept": {
+            "db": {
+              "type": "text",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "remark": {
+            "db": {
+              "type": "text",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "integer",
+              "default": "0"
+            }
+          },
+          "created_on": {
+            "db": {
+              "type": "datetime"
+            }
+          }
+        }
       },
       "account_master": {
         "db": {}
