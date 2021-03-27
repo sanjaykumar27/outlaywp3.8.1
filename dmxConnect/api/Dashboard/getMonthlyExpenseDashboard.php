@@ -55,15 +55,16 @@ $app->define(<<<'JSON'
     "module": "api",
     "action": "send",
     "options": {
-      "url": "http://152.67.160.39/exp_latest/api_generateGraph.php",
+      "url": "https://sanjaychaurasia.tech/api_generateGraph.php",
       "method": "POST",
       "data": {
-        "expense_data": "{{data}}"
+        "data": "{{data}}",
+        "method": "MonthlyExpenseGraph"
       },
       "schema": [],
-      "dataType": "x-www-form-urlencoded"
+      "dataType": "x-www-form-urlencoded",
+      "passErrors": false
     },
-    "output": true,
     "meta": [
       {
         "type": "array",

@@ -19,15 +19,21 @@ function CurrentMonthGraph() {
     $('#expense_monthly').html(rec_data);
 }
 
+function MutualFundDetails() {
+    console.log('Graph Called');
+    setTimeout(function () {
+        var rec_data = dmx.app.data.routeMutualFunds.scFundDetails.data.HTML;
+        $('#mutual_fund_details').html(rec_data);
+    }, 2000);
+}
 // $(function () {
 //     if ('serviceWorker' in navigator) {
 //         navigator.serviceWorker.register('../service-worker.js')
 //     }
 // });
 
-function RegistorSW()
-{
+function RegistorSW() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js');
-      }
+    }
 }

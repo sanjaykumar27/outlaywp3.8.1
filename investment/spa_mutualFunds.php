@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid px-0">
     <div class="card card-custom card-stretch gutter-b mb-2 pb-0">
         <div class="card-body border-dark-75 rounded p-4">
             <div class="d-flex">
@@ -28,60 +28,62 @@
                     </button>
                 </div>
             </div>
-            <p class="text-center mt-5" dmx-show="scFundDetails.state.executing"><i class="fas fa-sync-alt text-info fa-3x fa-spin"></i></p>
-            <div class="row my-5" dmx-show="arrGraphData.items.count() > 0">
+        </div>
+    </div>
+</div>
 
-                <div class="col-lg-7">
-                    <dmx-chart id="chart1" dmx-bind:data="arrGraphData.items" dataset-1:value="$value[1]" dataset-1:label="Nav" smooth="true" legend="bottom" colors="colors6" point-style="rectRounded" point-size="1"
-                        labels="$value[0].formatDate('dd-MM-yyyy')" responsive="true" nogrid="true">
-                    </dmx-chart>
-                </div>
-                <div class="col-lg-5">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody dmx-generator="bs4table" dmx-populate="scFundDetails.data.apiFundDetails.data.dataset">
-                                <tr>
-                                    <th>Folio Number</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.dataset_code"></td>
-                                </tr>
-                                <tr>
-                                    <th>Fund Name</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.name"></td>
-                                </tr>
-                                <tr>
-                                    <th>Description</th>
-                                    <td dmx-html="scFundDetails.data.apiFundDetails.data.dataset.description"></td>
-                                </tr>
-                                <tr>
-                                    <th>Refreshed at</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.refreshed_at.formatDate('dd MM yyyy')"></td>
-                                </tr>
-                                <tr>
-                                    <th>Newest available date</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.newest_available_date.formatDate('dd-MM-yyyy')"></td>
-                                </tr>
-                                <tr>
-                                    <th>Oldest available date</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.oldest_available_date.formatDate('dd-MM-yyyy')"></td>
-                                </tr>
-                                <tr>
-                                    <th>Frequency</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.frequency"></td>
-                                </tr>
-                                <tr>
-                                    <th>Start date</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.start_date"></td>
-                                </tr>
-                                <tr>
-                                    <th>End date</th>
-                                    <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.end_date"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+<div class="container-fluid">
+    <p class="text-center mt-5" dmx-show="scFundDetails.state.executing"><i class="fas fa-sync-alt text-info fa-3x fa-spin"></i></p>
+    <div class="row my-5" dmx-show="arrGraphData.items.count() > 0">
+        <div class="col-lg-7">
+            <dmx-chart id="chart1" dmx-bind:data="arrGraphData.items" dataset-1:value="$value[1]" dataset-1:label="Nav" smooth="true" legend="bottom" colors="colors6" point-style="rectRounded" point-size="1"
+                labels="$value[0].formatDate('dd-MM-yyyy')" responsive="true">
+            </dmx-chart>
+        </div>
+        <div class="col-lg-5">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody dmx-generator="bs4table" dmx-populate="scFundDetails.data.apiFundDetails.data.dataset">
+                        <tr>
+                            <th>Folio Number</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.dataset_code"></td>
+                        </tr>
+                        <tr>
+                            <th>Fund Name</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.name"></td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td dmx-html="scFundDetails.data.apiFundDetails.data.dataset.description"></td>
+                        </tr>
+                        <tr>
+                            <th>Refreshed at</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.refreshed_at.formatDate('dd MM yyyy')"></td>
+                        </tr>
+                        <tr>
+                            <th>Newest available date</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.newest_available_date.formatDate('dd-MM-yyyy')"></td>
+                        </tr>
+                        <tr>
+                            <th>Oldest available date</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.oldest_available_date.formatDate('dd-MM-yyyy')"></td>
+                        </tr>
+                        <tr>
+                            <th>Frequency</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.frequency"></td>
+                        </tr>
+                        <tr>
+                            <th>Start date</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.start_date"></td>
+                        </tr>
+                        <tr>
+                            <th>End date</th>
+                            <td dmx-text="scFundDetails.data.apiFundDetails.data.dataset.end_date"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
 </div>
