@@ -1,8 +1,9 @@
 <!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" components="{dmxDropzone:{},dmxNotifications:{},dmxStateManagement:{}}" id="QuickExense" bootstrap5="local" -->
 <dmx-notifications id="notif"></dmx-notifications>
-<dmx-serverconnect id="scDeleteQuickExpense" url="dmxConnect/api/Expense/RemoveQuickExpense.php" noload dmx-on:success="notif.success('Record Deleted');scGetQuickExpense.load()"></dmx-serverconnect>
+<dmx-serverconnect id="scDeleteQuickExpense" url="dmxConnect/api/Expense/RemoveQuickExpense.php" noload dmx-on:success="notif.success('Record Deleted');scGetQuickExpense.load();scGetQuickExpenseOld.load()"></dmx-serverconnect>
 <dmx-query-manager id="qm"></dmx-query-manager>
 <dmx-serverconnect id="scGetQuickExpense" url="dmxConnect/api/Expense/ExpenseList_quick.php" dmx-param:offset="query.offset" dmx-param:limit="10"></dmx-serverconnect>
+<dmx-serverconnect id="scGetQuickExpenseOld" url="dmxConnect/api/Expense/ExpenseList_quick_old.php" dmx-param:offset="query.offset" dmx-param:limit="10"></dmx-serverconnect>
 <dmx-value id="varInvoiceID" dmx-bind:value="scMaxInvoiceID.data.getMaxInvoiceID.invoice_id + 1"></dmx-value>
 <dmx-datetime id="varDateTime"></dmx-datetime>
 <dmx-serverconnect id="scMaxInvoiceID" url="dmxConnect/api/Expense/getMaxInvoiceID_quick.php"></dmx-serverconnect>
@@ -63,12 +64,79 @@
                 </div>
             </div>
         </div>
-
-
     </form>
+
     <div class="card card-custom card-stretch gutter-b mt-5">
         <div class="card-body mt-n3">
+            <h4>OLD DATA</h4>
             <div class="table-responsive">
+                <table class="table">
+                    <thead class="bg-dark-o-20">
+                        <tr>
+                            <th>ACC</th>
+                            <th>ITEM</th>
+                            <th>AMOUNT</th>
+                            <th>DATE</th>
+                            <th>REMARK</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" id="repeatExpenseList" dmx-bind:repeat="scGetQuickExpenseOld.data.queryExpenseList.data">
+                        <tr>
+                            <td>
+                                <div class="symbol symbol-40 symbol-light">{{Account}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="symbol symbol-40 symbol-light">{{Category + '/' + SubCategory}}
+                                </div>
+                            </td>
+                            <td class="text-truncate">
+                                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">{{Amount.toNumber().formatCurrency("₹ ", ".", ",", "2")}}</a>
+                            </td>
+                            <td class="text-truncate">
+                                <span class="text-info font-weight-bolder d-block font-size-lg">{{Date.formatDate("dd-MM-yyyy")}}</span>
+                            </td>
+                            <td>
+                                <div class="symbol symbol-40 symbol-light">{{Remark}}
+                                </div>
+                            </td>
+                            <td class="text-truncate">
+                                <button class="btn btn-outline-danger" dmx-on:click="scDeleteQuickExpense.load({id: ID, type: 'Old'})">
+                                    <i class="fas fa-check p-0"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex flex-row justify-content-md-center align-items-center my-3">
+                    <ul class="pagination justify-content-center pagination-lg" dmx-populate="scGetQuickExpenseOld.data.queryExpenseList" dmx-state="qm" dmx-offset="offset" dmx-generator="bs4paging">
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpenseOld.data.queryExpenseList.page.current == 1" aria-label="First">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpenseOld.data.queryExpenseList.page.offset.first);scGetQuickExpenseOld.load()"><span
+                                    aria-hidden="true">&lsaquo;&lsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpenseOld.data.queryExpenseList.page.current == 1" aria-label="Previous">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpenseOld.data.queryExpenseList.page.offset.prev);scGetQuickExpenseOld.load()"><span
+                                    aria-hidden="true">&lsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:active="title == scGetQuickExpenseOld.data.queryExpenseList.page.current" dmx-class:disabled="!active"
+                            dmx-repeat="scGetQuickExpenseOld.data.queryExpenseList.getServerConnectPagination(2,1,'...')">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',(page-1)*scGetQuickExpenseOld.data.queryExpenseList.limit);scGetQuickExpenseOld.load()">{{title}}</a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpenseOld.data.queryExpenseList.page.current ==  scGetQuickExpenseOld.data.queryExpenseList.page.total" aria-label="Next">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpenseOld.data.queryExpenseList.page.offset.next);scGetQuickExpenseOld.load()"><span
+                                    aria-hidden="true">&rsaquo;</span></a>
+                        </li>
+                        <li class="page-item" dmx-class:disabled="scGetQuickExpenseOld.data.queryExpenseList.page.current ==  scGetQuickExpenseOld.data.queryExpenseList.page.total" aria-label="Last">
+                            <a href="javascript:void(0)" class="page-link btn btn-icon  mr-2 my-1" dmx-on:click="qm.set('offset',scGetQuickExpenseOld.data.queryExpenseList.page.offset.last);scGetQuickExpenseOld.load()"><span
+                                    aria-hidden="true">&rsaquo;&rsaquo;</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 class="pt-5 border-top" dmx-show="scGetQuickExpense.data.queryExpenseList.data.hasItems()">NEW DATA</h4>
+            <div class="table-responsive" dmx-show="scGetQuickExpense.data.queryExpenseList.data.hasItems()">
                 <table class="table">
                     <thead class="bg-dark-o-20">
                         <tr>
@@ -104,7 +172,7 @@
                                 </div>
                             </td>
                             <td class="text-truncate">
-                                <button class="btn btn-outline-danger" dmx-on:click="scDeleteQuickExpense.load({id: expense_id})">
+                                <button class="btn btn-outline-danger" dmx-on:click="scDeleteQuickExpense.load({id: expense_id, type: 'new'})">
                                     <i class="fas fa-check p-0"></i>
                                 </button>
                             </td>

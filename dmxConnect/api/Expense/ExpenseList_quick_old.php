@@ -49,15 +49,15 @@ $app->define(<<<'JSON'
             "type": "SELECT",
             "columns": [],
             "table": {
-              "name": "quick_expense"
+              "name": "nnnnn___money_manager"
             },
             "joins": [],
-            "query": "SELECT *\nFROM quick_expense\nORDER BY purchase_date DESC",
+            "query": "SELECT *\nFROM nnnnn___money_manager\nORDER BY Date DESC",
             "params": [],
             "orders": [
               {
-                "table": "quick_expense",
-                "column": "purchase_date",
+                "table": "nnnnn___money_manager",
+                "column": "Date",
                 "direction": "DESC"
               }
             ]
@@ -118,40 +118,32 @@ $app->define(<<<'JSON'
             "type": "array",
             "sub": [
               {
-                "name": "expense_id",
+                "name": "ID",
                 "type": "number"
               },
               {
-                "name": "item_name",
+                "name": "Date",
                 "type": "text"
               },
               {
-                "name": "amount",
-                "type": "number"
-              },
-              {
-                "name": "purchase_date",
-                "type": "date"
-              },
-              {
-                "name": "invoice_id",
-                "type": "number"
-              },
-              {
-                "name": "reciept",
+                "name": "Account",
                 "type": "text"
               },
               {
-                "name": "remark",
+                "name": "Category",
                 "type": "text"
               },
               {
-                "name": "status",
-                "type": "number"
+                "name": "SubCategory",
+                "type": "text"
               },
               {
-                "name": "created_on",
-                "type": "datetime"
+                "name": "Remark",
+                "type": "text"
+              },
+              {
+                "name": "Amount",
+                "type": "text"
               }
             ]
           }
