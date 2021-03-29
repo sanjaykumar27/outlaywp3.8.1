@@ -476,8 +476,8 @@ JSON
                             </div>
                         </div>
                     </div>
-                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show=""></div>
-                    <div is="dmx-route" id="routeMutualFunds" path="/investment/funds" url="investment/spa_mutualFunds.php" dmx-on:show="scEMIList.load()"></div>
+                    <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
+                    <div is="dmx-route" id="routeMutualFunds" path="/investment/funds" url="investment/spa_mutualFunds.php"></div>
                     <div is="dmx-route" id="routeEmiDetails" path="/emi/details/:emi_id" url="Loan/spa_emiDetails.php" dmx-on:show="scEMIDetails.load()"></div>
                     <div is="dmx-route" id="routeQuickExpense" path="/expense/quick" url="Expense/spa_quickExpense.php"></div>
                     <div is="dmx-route" id="routeFormDetails" path="/form/detail/:form_id" url="Master/spa_formDetails.php"></div>

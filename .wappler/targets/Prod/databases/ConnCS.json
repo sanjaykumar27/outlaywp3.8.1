@@ -14,117 +14,56 @@
         "db": {}
       },
       "loan_details": {
+        "db": {}
+      },
+      "invested_mutual_funds": {
         "db": {},
         "columns": {
-          "id": {
+          "investment_id": {
             "db": {
               "type": "integer",
               "primary": true
             }
           },
-          "loan_id": {
+          "scheme_id": {
             "db": {
               "type": "integer"
             }
           },
-          "due_date": {
+          "folio_number": {
             "db": {
-              "type": "date",
-              "default": "NULL",
-              "nullable": true
+              "type": "integer"
             }
           },
-          "paid_on": {
+          "investment_amount": {
             "db": {
-              "type": "date",
-              "default": "NULL",
-              "nullable": true
+              "type": "decimal"
             }
           },
-          "loan_amount": {
+          "unit_alloted": {
             "db": {
-              "type": "float",
-              "default": "NULL",
-              "nullable": true
+              "type": "decimal"
             }
           },
-          "status": {
+          "nav": {
             "db": {
-              "type": "integer",
-              "default": "0"
+              "type": "decimal"
+            }
+          },
+          "fund_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "redeemed": {
+            "db": {
+              "type": "integer"
             }
           }
         }
       },
       "loan_master": {
-        "db": {},
-        "columns": {
-          "id": {
-            "db": {
-              "type": "integer",
-              "primary": true
-            }
-          },
-          "userid": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "loan_name": {
-            "db": {
-              "type": "string"
-            }
-          },
-          "starting_date": {
-            "db": {
-              "type": "date"
-            }
-          },
-          "ending_date": {
-            "db": {
-              "type": "date"
-            }
-          },
-          "total_amount": {
-            "db": {
-              "type": "integer"
-            }
-          },
-          "no_of_emi": {
-            "db": {
-              "type": "integer"
-            }
-          },
-          "interest_amount": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "paid_via": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "cash_paid": {
-            "db": {
-              "type": "integer",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "status": {
-            "db": {
-              "type": "integer",
-              "default": "1"
-            }
-          }
-        }
+        "db": {}
       },
       "userlogged": {
         "db": {}
@@ -133,57 +72,7 @@
         "db": {}
       },
       "nnnnn___money_manager": {
-        "db": {},
-        "columns": {
-          "ID": {
-            "db": {
-              "type": "integer",
-              "primary": true
-            }
-          },
-          "Date": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "Account": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "Category": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "SubCategory": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "Remark": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          },
-          "Amount": {
-            "db": {
-              "type": "string",
-              "default": "NULL",
-              "nullable": true
-            }
-          }
-        }
+        "db": {}
       },
       "user": {
         "db": {}
@@ -192,7 +81,53 @@
         "db": {}
       },
       "amfi_metadata": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "fund_id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "code": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "db": {
+              "type": "binary",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "refreshed_at": {
+            "db": {
+              "type": "binary",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "from_date": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "to_date": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          }
+        }
       },
       "form_master": {
         "db": {}
@@ -216,22 +151,64 @@
         "db": {}
       },
       "quick_expense": {
+        "db": {}
+      },
+      "account_master": {
+        "db": {}
+      },
+      "pinned_mutual_funds": {
         "db": {},
         "columns": {
-          "expense_id": {
+          "folio_id": {
             "db": {
               "type": "integer",
               "primary": true
             }
           },
-          "item_name": {
+          "name": {
             "db": {
               "type": "string"
             }
+          }
+        }
+      },
+      "sub_categories": {
+        "db": {}
+      },
+      "expense": {
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
           },
-          "amount": {
+          "user_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "category_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "invoice_number": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "quantity": {
             "db": {
               "type": "decimal"
+            }
+          },
+          "unit": {
+            "db": {
+              "type": "integer"
             }
           },
           "purchase_date": {
@@ -239,14 +216,30 @@
               "type": "date"
             }
           },
-          "invoice_id": {
+          "receipt_url": {
             "db": {
-              "type": "integer"
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
             }
           },
-          "reciept": {
+          "receipt_name": {
             "db": {
-              "type": "text",
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "account": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "payment_type": {
+            "db": {
+              "type": "integer",
               "default": "NULL",
               "nullable": true
             }
@@ -258,10 +251,22 @@
               "nullable": true
             }
           },
-          "status": {
+          "amount": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "deleted": {
             "db": {
               "type": "integer",
               "default": "0"
+            }
+          },
+          "invoice_name": {
+            "db": {
+              "type": "string",
+              "default": "NULL",
+              "nullable": true
             }
           },
           "created_on": {
@@ -270,15 +275,6 @@
             }
           }
         }
-      },
-      "account_master": {
-        "db": {}
-      },
-      "sub_categories": {
-        "db": {}
-      },
-      "expense": {
-        "db": {}
       },
       "lic_premiums": {
         "db": {}

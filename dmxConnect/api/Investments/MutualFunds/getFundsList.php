@@ -71,7 +71,7 @@ $app->define(<<<'JSON'
       "meta": [
         {
           "name": "fund_id",
-          "type": "text"
+          "type": "number"
         },
         {
           "name": "code",
@@ -83,19 +83,19 @@ $app->define(<<<'JSON'
         },
         {
           "name": "description",
-          "type": "text"
+          "type": "file"
         },
         {
           "name": "refreshed_at",
-          "type": "datetime"
+          "type": "file"
         },
         {
           "name": "from_date",
-          "type": "date"
+          "type": "text"
         },
         {
           "name": "to_date",
-          "type": "date"
+          "type": "text"
         }
       ],
       "outputType": "array"

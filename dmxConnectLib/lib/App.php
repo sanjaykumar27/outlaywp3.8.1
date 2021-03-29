@@ -213,11 +213,11 @@ class App
         }
     }
 
-	public function parse($value, Scope $scope = NULL) {
-		return $this->parseObject($value, $scope);
+	public function parse($value, Scope $scope = NULL, $stripNull = FALSE) {
+		return $this->parseObject($value, $scope, $stripNull);
 	}
 
-    public function parseObject($value, Scope $scope = NULL) {
+    public function parseObject($value, Scope $scope = NULL, $stripNull = FALSE) {
         if ($value === NULL) {
             return NULL;
         }
@@ -226,12 +226,18 @@ class App
             $value = clone $value;
             foreach ($value as $key => $val) {
                 $value->$key = $this->parseObject($val, $scope);
+                if ($stripNull && is_null($value->$key)) {
+                    unset($value->$key);
+                }
             }
         }
 
         if (is_array($value)) {
             foreach ($value as $key => $val) {
                 $value[$key] = $this->parseObject($val, $scope);
+                if ($stripNull && is_null($value[$key])) {
+                    unset($value[$key]);
+                }
             }
         }
 

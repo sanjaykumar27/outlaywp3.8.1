@@ -1,5 +1,5 @@
 <!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" bootstrap4="local" id="EMIDEtails" components="{dmxBootstrap4Modal:{},dmxNotifications:{}}" -->
-
+<dmx-value id="varPercentage" dmx-bind:value="((scEMIDetails.data.GetDetails.paid_emi/scEMIDetails.data.GetDetails.no_of_emi) * 100).round()"></dmx-value>
 <dmx-value id="varEmiID"></dmx-value>
 <dmx-serverconnect id="scEMIDetails" url="dmxConnect/api/Other/EMI/getEMIDetails.php" noload dmx-param:emi_id="params.emi_id"></dmx-serverconnect>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -14,6 +14,50 @@
             </a>
         </div>
     </div>
+</div>
+<div class="col-xl-12">
+    <div class="card card-custom gutter-b card-stretch">
+        <div class="card-body">
+            <!-- <div class="d-flex align-items-center flex-wrap justify-content-between">
+                <div class="d-flex flex-column mr-auto">
+                    <a href="#" class="card-title text-hover-primary font-weight-bolder font-size-h5 text-dark mb-1">{{scEMIDetails.data.GetDetails.loan_name}}</a>
+                    <span class="btn btn-sm font-weight-bold btn-upper btn-text" dmx-class:btn-light-danger="scEMIDetails.data.GetDetails.status == 0"
+                        dmx-class:btn-light-success="scEMIDetails.data.GetDetails.status == 1">{{scEMIDetails.data.GetDetails.status ? 'Completed' : 'Pending'}}</span>
+                </div>
+                <div class="d-flex flex-column mb-7 mr-5">
+                    <span class="d-block font-weight-bold mb-4">Start Date</span>
+                    <span class="btn btn-light-primary btn-sm font-weight-bold btn-upper btn-text">{{scEMIDetails.data.GetDetails.starting_date.formatDate('dd-MM-yyyy')}}</span>
+                </div>
+                <div class="d-flex flex-column mb-7 mr-5">
+                    <span class="d-block font-weight-bold mb-4">Due Date</span>
+                    <span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text">{{scEMIDetails.data.GetDetails.ending_date.formatDate('dd-MM-yyyy')}}</span>
+                </div>
+                <div class="d-flex flex-column mb-7 mr-5">
+                    <span class="font-weight-bolder mb-4">Budget</span>
+                    <span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text">
+                        {{scEMIDetails.data.GetDetails.total_amount.formatCurrency("₹ ", ".", ",", "2")}}</span>
+                </div>
+                <div class="d-flex flex-column mb-7 mr-5">
+                    <span class="font-weight-bolder mb-4">Expenses</span>
+                    <span class="btn btn-light-danger btn-sm font-weight-bold btn-upper btn-text">
+                        {{scEMIDetails.data.GetDetails.interest_amount.formatCurrency("₹ ", ".", ",", "2")}}</span>
+                </div>
+            </div> -->
+            <!-- <p class="mb-7 mt-3">Paid Via: {{scEMIDetails.data.GetDetails.paid_via}} </p> -->
+
+            <div class="flex-row-fluid mb-7">
+                <span class="d-block font-weight-bold mb-4">Progress</span>
+                <div class="d-flex align-items-center pt-2">
+                    <div class="progress progress-xs mt-2 mb-2 w-100">
+                        <div class="progress-bar bg-warning" role="progressbar" dmx-bind:style="width: {{varPercentage.value}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span class="ml-3 font-weight-bolder">{{varPercentage.value}}%</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--end::Card-->
 </div>
 <div class="row ml-0">
     <div class="col">

@@ -16,6 +16,22 @@ $app->define(<<<'JSON'
           }
         },
         "name": "foliocode"
+      },
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      },
+      {
+        "type": "text",
+        "name": "start_date"
+      },
+      {
+        "type": "text",
+        "name": "end_date"
       }
     ]
   },
@@ -26,9 +42,14 @@ $app->define(<<<'JSON'
         "module": "api",
         "action": "send",
         "options": {
-          "url": "{{'https://www.quandl.com/api/v3/datasets/AMFI/'+$_GET.foliocode+'.json?api_key=uuN2KGBSriTRXRkcgmwe'}}",
+          "url": "{{'https://www.quandl.com/api/v3/datasets/AMFI/'+$_GET.foliocode+'.json'}}",
           "passErrors": false,
-          "schema": []
+          "schema": [],
+          "params": {
+            "api_key": "uuN2KGBSriTRXRkcgmwe",
+            "start_date": "{{$_GET.start_date}}",
+            "end_date": "{{$_GET.end_date}}"
+          }
         },
         "output": true,
         "meta": [
@@ -321,7 +342,8 @@ $app->define(<<<'JSON'
           "key": "HTML",
           "value": "{{apiGraph.data}}"
         },
-        "output": true
+        "output": true,
+        "disabled": true
       }
     ]
   }

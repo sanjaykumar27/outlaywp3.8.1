@@ -184,6 +184,19 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "repeatmf": {
+      "meta": [
+        {
+          "name": "folio_id",
+          "type": "number"
+        },
+        {
+          "name": "name",
+          "type": "text"
+        }
+      ],
+      "outputType": "array"
     }
   },
   "QuickExense": {
