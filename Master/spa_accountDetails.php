@@ -8,10 +8,13 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
 	<div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
 		<div class="d-flex align-items-center flex-wrap mr-2">
-			<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Account Details</h5>
+			<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+				<a href="./account/list">
+					<i class="fa fa-arrow-left mr-2"></i></a>
+				Account Details</h5>
 		</div>
 		<div class="d-flex align-items-center">
-			<a href="javascript:void(0)" class="btn btn-primary font-weight-bold" dmx-on:click="modalAccountTransaction.show()">
+			<a href="javascript:void(0)" class="btn btn-primary font-weight-bold" dmx-on:click="modalAccountTransaction.show();scAccountList.load()">
 				<i class="flaticon-plus"></i> Add Transaction
 			</a>
 		</div>
