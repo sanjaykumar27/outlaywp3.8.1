@@ -1,4 +1,5 @@
 <!-- Wappler include head-page="../index.php" appconnect="local" is="dmx-app" fontawesome_5="local" jquery_slim_35="local" moment_2="local with locales" bootstrap4="local" components="{dmxAutocomplete:{},dmxBootstrap4TableGenerator:{},dmxCharts:{},dmxFormatter:{},dmxBootstrap4Tooltips:{},dmxBootstrap4Modal:{},dmxNotifications:{}}" id="MutualFunds" -->
+<dmx-serverconnect id="scGetTradingPlatform" url="dmxConnect/api/Common/getFundPlatform.php" noload></dmx-serverconnect>
 <dmx-serverconnect id="scGetInvestedFunds" url="dmxConnect/api/Investments/MutualFunds/getInvestedFunds.php"></dmx-serverconnect>
 <dmx-notifications id="notifies1"></dmx-notifications>
 <dmx-value id="varGraphSize" dmx-bind:value="0"></dmx-value>
@@ -14,7 +15,7 @@
             <h3 class="text-dark fw-bold mt-2 mb-2 me-5">Mutual Funds</h3>
         </div>
         <div class="d-flex align-items-center">
-            <a href="#" class="btn btn-primary mr-2" dmx-on:click="" data-toggle="modal" data-target="#modalNewFunds">
+            <a href="#" class="btn btn-primary mr-2" dmx-on:click="scGetTradingPlatform.load()" data-toggle="modal" data-target="#modalNewFunds">
                 <i class="flaticon-plus"></i> Buy Fund
             </a>
         </div>
@@ -157,13 +158,13 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="inp_scheme_id">Scheme</label>
+                                <label for="inp_scheme_id">Scheme ID</label>
                                 <input type="number" class="form-control" name="scheme_id" placeholder="Enter Scheme">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="inp_folio_number">Folio number</label>
+                                <label for="inp_folio_number">Folio Number</label>
                                 <input type="number" class="form-control" id="inp_folio_number" name="folio_number" placeholder="Enter Folio number">
                             </div>
                         </div>
@@ -171,30 +172,14 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="inp_investment_amount">Investment amount</label>
-                                <input type="number" class="form-control" id="inp_investment_amount" name="investment_amount" placeholder="Enter Investment amount">
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="inp_unit_alloted">Unit alloted</label>
-                                <input type="number" class="form-control" id="inp_unit_alloted" name="unit_alloted" placeholder="Enter Unit alloted">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="inp_nac">Nac</label>
-                                <input type="number" class="form-control" id="inp_nac" name="nac" placeholder="Enter Nac">
-
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="inp_fund_name">Fund name</label>
+                                <label for="inp_fund_name">Fund Name</label>
                                 <input type="text" class="form-control" id="inp_fund_name" name="fund_name" placeholder="Enter Fund name">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="inp_fund_name">Fund Platform</label>
+                                <select class="form-control" name="trading_platform" id="" dmx-bind:options="scGetTradingPlatform.data.GetList" optiontext="name" optionvalue="id"></select>
                             </div>
                         </div>
                     </div>

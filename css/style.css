@@ -1,5 +1,5 @@
 html * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 body {
@@ -53,8 +53,9 @@ body {
   text-transform: uppercase;
 }
 .shadow-lg {
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
 }
 .table td,
 .table th {
@@ -127,19 +128,19 @@ body {
 }
 
 @media (min-width: 992px) {
- .header-fixed.subheader-fixed .subheader {
-   top: 0 !important;
- }
- .header-fixed.subheader-fixed.subheader-enabled .wrapper {
+  .header-fixed.subheader-fixed .subheader {
+    top: 0 !important;
+  }
+  .header-fixed.subheader-fixed.subheader-enabled .wrapper {
     padding-top: 0;
-}
-.content {
-  padding: 68px 0;
-}
+  }
+  .content {
+    padding: 68px 0;
+  }
 }
 
 @media (max-width: 991.98px) {
   .header-mobile-fixed .wrapper {
-      padding-top: 0;
+    padding-top: 0;
   }
 }

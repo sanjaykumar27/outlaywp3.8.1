@@ -75,7 +75,75 @@
         "db": {}
       },
       "user": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "first_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "last_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "username": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "email": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "password": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "mobile": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "user_type": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "profile_pic": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "created_at": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "updated_at": {
+            "db": {
+              "type": "date"
+            }
+          }
+        }
       },
       "form_data": {
         "db": {}
@@ -133,7 +201,31 @@
         "db": {}
       },
       "collections": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "collectiontype_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer",
+              "default": "0"
+            }
+          }
+        }
       },
       "collection_type": {
         "db": {}
@@ -173,6 +265,9 @@
         }
       },
       "sub_categories": {
+        "db": {}
+      },
+      "mutual_fund_transactions": {
         "db": {}
       },
       "expense": {
