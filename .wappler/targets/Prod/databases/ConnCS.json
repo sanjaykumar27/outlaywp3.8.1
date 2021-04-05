@@ -230,6 +230,67 @@
       "collection_type": {
         "db": {}
       },
+      "share_market": {
+        "db": {},
+        "columns": {
+          "share_id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "company_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "purchase_date": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "share_price": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "unit": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "invested_amount": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "sell_date": {
+            "db": {
+              "type": "date"
+            }
+          },
+          "sell_share_price": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "sell_price": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "profit_loss": {
+            "db": {
+              "type": "decimal"
+            }
+          },
+          "transaction_completed": {
+            "db": {
+              "type": "integer"
+            }
+          }
+        }
+      },
       "categories": {
         "db": {}
       },

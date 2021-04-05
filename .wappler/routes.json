@@ -15,6 +15,12 @@
       "routes": [
         {
           "type": "page",
+          "path": "/investment/stocks",
+          "id": "routeStockList",
+          "url": "investment/spa_stocks.php"
+        },
+        {
+          "type": "page",
           "path": "/emi/list",
           "id": "routeEmiList",
           "url": "Loan/spa_emiList.php"

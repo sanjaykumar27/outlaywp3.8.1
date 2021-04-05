@@ -306,6 +306,14 @@ JSON
                                                 <span class="menu-text">Mutual Funds</span>
                                             </a>
                                         </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./investment/stocks" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Stocks</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -476,6 +484,7 @@ JSON
                             </div>
                         </div>
                     </div>
+                    <div is="dmx-route" id="routeStockList" path="/investment/stocks" url="investment/spa_stocks.php" dmx-on:show="scStockLists.load()"></div>
                     <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
                     <div is="dmx-route" id="routeMutualFunds" path="/investment/funds" url="investment/spa_mutualFunds.php"></div>
                     <div is="dmx-route" id="routeEmiDetails" path="/emi/details/:emi_id" url="Loan/spa_emiDetails.php" dmx-on:show="scEMIDetails.load()"></div>
@@ -517,7 +526,7 @@ JSON
             </div>
         </div>
     </div>
-    </div>
+
     <div id="kt_scrolltop" class="scrolltop">
         <span class="svg-icon">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
