@@ -15,6 +15,24 @@
       "routes": [
         {
           "type": "page",
+          "path": "/reports/monthly",
+          "id": "routeMonthlySpends",
+          "url": "Reports/spa_monthlySpends.php"
+        },
+        {
+          "type": "page",
+          "path": "/reports/costly",
+          "id": "routeCostlySpends",
+          "url": "Reports/spa_costlySpends.php"
+        },
+        {
+          "type": "page",
+          "path": "/reports/frequently",
+          "id": "routeFrequentSpends",
+          "url": "Reports/spa_frequentSpends.php"
+        },
+        {
+          "type": "page",
           "path": "/investment/stocks",
           "id": "routeStockList",
           "url": "investment/spa_stocks.php"

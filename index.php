@@ -317,6 +317,44 @@ JSON
                                     </ul>
                                 </div>
                             </li>
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle d-flex align-items-center">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-wallet menu-fa-icon fa-fw"></i>
+                                    </span>
+                                    <span class="menu-text">Reports</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./reports/monthly" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Monthly Spends</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./reports/costly" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Costly Buys</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="./reports/frequently">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Frequent Buys</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -484,6 +522,10 @@ JSON
                             </div>
                         </div>
                     </div>
+                    <div is="dmx-route" id="routeMonthlySpends" path="/reports/monthly" url="Reports/spa_monthlySpends.php" dmx-on:show=""></div>
+                    <div is="dmx-route" id="routeCostlySpends" path="/reports/costly" url="Reports/spa_costlySpends.php" dmx-on:show=""></div>
+                    <div is="dmx-route" id="routeFrequentSpends" path="/reports/frequently" url="Reports/spa_frequentSpends.php" dmx-on:show=""></div>
+
                     <div is="dmx-route" id="routeStockList" path="/investment/stocks" url="investment/spa_stocks.php" dmx-on:show="scStockLists.load()"></div>
                     <div is="dmx-route" id="routeEmiList" path="/emi/list" url="Loan/spa_emiList.php" dmx-on:show="scEMIList.load()"></div>
                     <div is="dmx-route" id="routeMutualFunds" path="/investment/funds" url="investment/spa_mutualFunds.php"></div>
