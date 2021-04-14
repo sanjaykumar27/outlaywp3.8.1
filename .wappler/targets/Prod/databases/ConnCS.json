@@ -292,7 +292,44 @@
         }
       },
       "categories": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "category_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "db": {
+              "type": "enum",
+              "default": "'Active'"
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer",
+              "default": "0"
+            }
+          },
+          "created_at": {
+            "db": {
+              "type": "timestamp",
+              "default": "'0000-00-00 00:00:00'"
+            }
+          },
+          "updated_at": {
+            "db": {
+              "type": "timestamp",
+              "default": "'0000-00-00 00:00:00'"
+            }
+          }
+        }
       },
       "form_fields": {
         "db": {}
@@ -326,7 +363,64 @@
         }
       },
       "sub_categories": {
-        "db": {}
+        "db": {},
+        "columns": {
+          "id": {
+            "db": {
+              "type": "integer",
+              "primary": true
+            }
+          },
+          "category_id": {
+            "db": {
+              "type": "integer"
+            }
+          },
+          "subcategory_name": {
+            "db": {
+              "type": "string"
+            }
+          },
+          "default_price": {
+            "db": {
+              "type": "decimal",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "default_unit": {
+            "db": {
+              "type": "integer",
+              "default": "NULL",
+              "nullable": true
+            }
+          },
+          "status": {
+            "db": {
+              "type": "enum",
+              "default": "'Active'"
+            }
+          },
+          "deleted": {
+            "db": {
+              "type": "integer",
+              "default": "0"
+            }
+          },
+          "created_at": {
+            "db": {
+              "type": "timestamp",
+              "default": "'0000-00-00 00:00:00'"
+            }
+          },
+          "updated_at": {
+            "db": {
+              "type": "timestamp",
+              "default": "NULL",
+              "nullable": true
+            }
+          }
+        }
       },
       "mutual_fund_transactions": {
         "db": {}

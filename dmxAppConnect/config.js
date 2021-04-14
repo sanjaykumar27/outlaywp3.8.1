@@ -1,59 +1,4 @@
 dmx.config({
-  "TargetList": {
-    "repeattargets": {
-      "meta": [
-        {
-          "name": "$index",
-          "type": "number"
-        },
-        {
-          "name": "$key",
-          "type": "text"
-        },
-        {
-          "name": "$value",
-          "type": "object"
-        },
-        {
-          "name": "id",
-          "type": "text"
-        },
-        {
-          "name": "target_name",
-          "type": "text"
-        },
-        {
-          "name": "target_amount",
-          "type": "number"
-        },
-        {
-          "name": "target_description",
-          "type": "text"
-        },
-        {
-          "name": "target_photo",
-          "type": "text"
-        },
-        {
-          "name": "IsCompleted",
-          "type": "boolean"
-        },
-        {
-          "name": "CreatedOn",
-          "type": "datetime"
-        },
-        {
-          "name": "TotalDebit",
-          "type": "number"
-        },
-        {
-          "name": "TotalCredit",
-          "type": "number"
-        }
-      ],
-      "outputType": "array"
-    }
-  },
   "spa_emiList": {
     "repeatEmi": {
       "meta": [
@@ -229,6 +174,98 @@ dmx.config({
         {
           "name": "Amount",
           "type": "text"
+        }
+      ],
+      "outputType": "array"
+    }
+  },
+  "CostlySpends": {
+    "repeattargets": {
+      "meta": [
+        {
+          "name": "$index",
+          "type": "number"
+        },
+        {
+          "name": "$key",
+          "type": "text"
+        },
+        {
+          "name": "$value",
+          "type": "object"
+        },
+        {
+          "name": "id",
+          "type": "text"
+        },
+        {
+          "name": "target_name",
+          "type": "text"
+        },
+        {
+          "name": "target_amount",
+          "type": "number"
+        },
+        {
+          "name": "target_description",
+          "type": "text"
+        },
+        {
+          "name": "target_photo",
+          "type": "text"
+        },
+        {
+          "name": "IsCompleted",
+          "type": "boolean"
+        },
+        {
+          "name": "CreatedOn",
+          "type": "datetime"
+        },
+        {
+          "name": "TotalDebit",
+          "type": "number"
+        },
+        {
+          "name": "TotalCredit",
+          "type": "number"
+        }
+      ],
+      "outputType": "array"
+    },
+    "tableRepeat1": {
+      "meta": [
+        {
+          "name": "$index",
+          "type": "number"
+        },
+        {
+          "name": "$key",
+          "type": "text"
+        },
+        {
+          "name": "$value",
+          "type": "object"
+        },
+        {
+          "name": "category_id",
+          "type": "number"
+        },
+        {
+          "name": "item_name",
+          "type": "text"
+        },
+        {
+          "name": "category_name",
+          "type": "text"
+        },
+        {
+          "name": "total_amount",
+          "type": "number"
+        },
+        {
+          "name": "no_times",
+          "type": "number"
         }
       ],
       "outputType": "array"
