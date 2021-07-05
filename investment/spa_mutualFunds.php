@@ -153,7 +153,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" is="dmx-serverconnect-form" id="formNewFund" action="dmxConnect/api/Investments/MutualFunds/NewFund.php"
+                <form method="post" is="dmx-serverconnect-form" id="formNewFund" action="dmxConnect/api/Investments/MutualFunds/NewFundphp"
                     dmx-on:success="formNewFund.reset();modalNewFunds.hide();notifies1.success('Fund Created');scGetInvestedFunds.load()">
                     <div class="row">
                         <div class="col">

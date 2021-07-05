@@ -35,27 +35,12 @@
               "type": "integer"
             }
           },
-          "investment_amount": {
-            "db": {
-              "type": "decimal"
-            }
-          },
-          "unit_alloted": {
-            "db": {
-              "type": "decimal"
-            }
-          },
-          "nav": {
-            "db": {
-              "type": "decimal"
-            }
-          },
           "fund_name": {
             "db": {
               "type": "string"
             }
           },
-          "redeemed": {
+          "fund_platform": {
             "db": {
               "type": "integer"
             }

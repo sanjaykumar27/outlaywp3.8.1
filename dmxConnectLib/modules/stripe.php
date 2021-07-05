@@ -79,9 +79,7 @@ class stripe extends Module
   public function listAccountCapabilities($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'account');
-    $account = $options->account;
-    unset($options->account);
-    return $this->stripe->accounts->listCapabilities($account)->toArray();
+    return $this->stripe->accounts->listCapabilities(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/accounts/{account}/capabilities/{capability} - get
@@ -112,9 +110,7 @@ class stripe extends Module
   public function listAccountExternalAccounts($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'account');
-    $account = $options->account;
-    unset($options->account);
-    return $this->stripe->accounts->listExternalAccounts($account, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->accounts->listExternalAccounts(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/accounts/{account}/external_accounts - post
@@ -175,9 +171,7 @@ class stripe extends Module
   public function listAccountPersons($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'account');
-    $account = $options->account;
-    unset($options->account);
-    return $this->stripe->accounts->listPersons($account, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->accounts->listPersons(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/accounts/{account}/persons - post
@@ -331,9 +325,7 @@ class stripe extends Module
   public function listApplicationFeeRefunds($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'id');
-    $id = $options->id;
-    unset($options->id);
-    return $this->stripe->applicationFees->listRefunds($id, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->applicationFees->listRefunds(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/application_fees/{id}/refunds - post
@@ -421,9 +413,7 @@ class stripe extends Module
   public function listBitcoinReceiverTransactions($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'receiver');
-    $receiver = $options->receiver;
-    unset($options->receiver);
-    return $this->stripe->bitcoin->receivers->listTransactions($receiver, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->bitcoin->receivers->listTransactions(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/charges - get
@@ -469,9 +459,7 @@ class stripe extends Module
   public function listChargeRefunds($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'charge');
-    $charge = $options->charge;
-    unset($options->charge);
-    return $this->stripe->charges->listRefunds($charge, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->charges->listRefunds(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/charges/{charge}/refunds/{refund} - get
@@ -566,9 +554,7 @@ class stripe extends Module
   public function listCheckoutSessionLineItems($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'session');
-    $session = $options->session;
-    unset($options->session);
-    return $this->stripe->checkout->sessions->listLineItems($session, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->checkout->sessions->listLineItems(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/country_specs - get
@@ -650,18 +636,14 @@ class stripe extends Module
   public function listCreditNotesPreviewLines($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'invoice');
-    $invoice = $options->invoice;
-    unset($options->invoice);
-    return $this->stripe->creditNotes->preview->lines->all($invoice, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->creditNotes->preview->lines->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/credit_notes/{credit_note}/lines - get
   public function listCreditNoteLines($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'credit_note');
-    $credit_note = $options->credit_note;
-    unset($options->credit_note);
-    return $this->stripe->creditNotes->listLines($credit_note, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->creditNotes->listLines(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/credit_notes/{id} - get
@@ -734,9 +716,7 @@ class stripe extends Module
   public function listCustomerBalanceTransactions($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'customer');
-    $customer = $options->customer;
-    unset($options->customer);
-    return $this->stripe->customers->listBalanceTransactions($customer, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->customers->listBalanceTransactions(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/customers/{customer}/balance_transactions - post
@@ -785,9 +765,7 @@ class stripe extends Module
   public function listCustomerSources($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'customer');
-    $customer = $options->customer;
-    unset($options->customer);
-    return $this->stripe->customers->listSources($customer, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->customers->listSources(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/customers/{customer}/sources - post
@@ -839,9 +817,7 @@ class stripe extends Module
   public function listCustomerTaxIds($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'customer');
-    $customer = $options->customer;
-    unset($options->customer);
-    return $this->stripe->customers->listTaxIds($customer, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->customers->listTaxIds(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/customers/{customer}/tax_ids - post
@@ -1133,9 +1109,7 @@ class stripe extends Module
   public function listInvoiceLines($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'invoice');
-    $invoice = $options->invoice;
-    unset($options->invoice);
-    return $this->stripe->invoices->listLines($invoice, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->invoices->listLines(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/invoices/{invoice}/mark_uncollectible - post
@@ -1487,12 +1461,8 @@ class stripe extends Module
   public function listPaymentMethods($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'customer');
-    $customer = $options->customer;
-    unset($options->customer);
     option_require($options, 'type');
-    $type = $options->type;
-    unset($options->type);
-    return $this->stripe->paymentMethods->all($customer, $type, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->paymentMethods->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/payment_methods - post
@@ -1742,9 +1712,7 @@ class stripe extends Module
   public function listRadarValueListItems($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'value_list');
-    $value_list = $options->value_list;
-    unset($options->value_list);
-    return $this->stripe->radar->valueListItems->all($value_list, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->radar->valueListItems->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/radar/value_list_items - post
@@ -1903,7 +1871,7 @@ class stripe extends Module
   // /v1/reporting/report_types - get
   public function listReportingReportTypes($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
-    return $this->stripe->reporting->reportTypes->all()->toArray();
+    return $this->stripe->reporting->reportTypes->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/reporting/report_types/{report_type} - get
@@ -1943,9 +1911,7 @@ class stripe extends Module
   public function listSetupAttempts($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'setup_intent');
-    $setup_intent = $options->setup_intent;
-    unset($options->setup_intent);
-    return $this->stripe->setupAttempts->all($setup_intent, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->setupAttempts->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/setup_intents - get
@@ -2078,9 +2044,7 @@ class stripe extends Module
   public function listSourceSourceTransactions($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'source');
-    $source = $options->source;
-    unset($options->source);
-    return $this->stripe->sources->listSourceTransactions($source, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->sources->listSourceTransactions(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/sources/{source}/verify - post
@@ -2096,9 +2060,7 @@ class stripe extends Module
   public function listSubscriptionItems($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'subscription');
-    $subscription = $options->subscription;
-    unset($options->subscription);
-    return $this->stripe->subscriptionItems->all($subscription, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->subscriptionItems->all(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/subscription_items - post
@@ -2138,9 +2100,7 @@ class stripe extends Module
   public function listSubscriptionItemUsageRecordSummaries($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'subscription_item');
-    $subscription_item = $options->subscription_item;
-    unset($options->subscription_item);
-    return $this->stripe->subscriptionItems->listUsageRecordSummaries($subscription_item, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->subscriptionItems->listUsageRecordSummaries(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/subscription_items/{subscription_item}/usage_records - post
@@ -2432,9 +2392,7 @@ class stripe extends Module
   public function listTransferReversals($options) {
     $options = $this->app->parseObject($options, NULL, TRUE);
     option_require($options, 'id');
-    $id = $options->id;
-    unset($options->id);
-    return $this->stripe->transfers->listReversals($id, json_decode(json_encode($options), true))->toArray();
+    return $this->stripe->transfers->listReversals(json_decode(json_encode($options), true))->toArray();
   }
 
   // /v1/transfers/{id}/reversals - post

@@ -35,6 +35,10 @@ $app->define(<<<'JSON'
       {
         "type": "number",
         "name": "nav"
+      },
+      {
+        "type": "number",
+        "name": "trading_platform"
       }
     ]
   },
@@ -49,7 +53,7 @@ $app->define(<<<'JSON'
         }
       },
       {
-        "name": "Insert",
+        "name": "insert",
         "module": "dbupdater",
         "action": "insert",
         "options": {
@@ -71,38 +75,20 @@ $app->define(<<<'JSON'
               },
               {
                 "table": "invested_mutual_funds",
-                "column": "investment_amount",
-                "type": "number",
-                "value": "{{$_POST.investment_amount}}"
-              },
-              {
-                "table": "invested_mutual_funds",
-                "column": "unit_alloted",
-                "type": "number",
-                "value": "{{$_POST.unit_alloted}}"
-              },
-              {
-                "table": "invested_mutual_funds",
-                "column": "nac",
-                "type": "number",
-                "value": "{{$_POST.nav}}"
-              },
-              {
-                "table": "invested_mutual_funds",
                 "column": "fund_name",
                 "type": "text",
                 "value": "{{$_POST.fund_name}}"
               },
               {
                 "table": "invested_mutual_funds",
-                "column": "redeemed",
+                "column": "fund_platform",
                 "type": "number",
-                "value": "0"
+                "value": "{{$_POST.trading_platform}}"
               }
             ],
             "table": "invested_mutual_funds",
             "returning": "investment_id",
-            "query": "INSERT INTO invested_mutual_funds\n(scheme_id, folio_number, investment_amount, unit_alloted, nac, fund_name, redeemed) VALUES (:P1 /* {{$_POST.scheme_id}} */, :P2 /* {{$_POST.folio_number}} */, :P3 /* {{$_POST.investment_amount}} */, :P4 /* {{$_POST.unit_alloted}} */, :P5 /* {{$_POST.nav}} */, :P6 /* {{$_POST.fund_name}} */, '0')",
+            "query": "INSERT INTO invested_mutual_funds\n(scheme_id, folio_number, fund_name, fund_platform) VALUES (:P1 /* {{$_POST.scheme_id}} */, :P2 /* {{$_POST.folio_number}} */, :P3 /* {{$_POST.fund_name}} */, :P4 /* {{$_POST.trading_platform}} */)",
             "params": [
               {
                 "name": ":P1",
@@ -117,22 +103,12 @@ $app->define(<<<'JSON'
               {
                 "name": ":P3",
                 "type": "expression",
-                "value": "{{$_POST.investment_amount}}"
+                "value": "{{$_POST.fund_name}}"
               },
               {
                 "name": ":P4",
                 "type": "expression",
-                "value": "{{$_POST.unit_alloted}}"
-              },
-              {
-                "name": ":P5",
-                "type": "expression",
-                "value": "{{$_POST.nav}}"
-              },
-              {
-                "name": ":P6",
-                "type": "expression",
-                "value": "{{$_POST.fund_name}}"
+                "value": "{{$_POST.trading_platform}}"
               }
             ]
           }

@@ -94,6 +94,34 @@ class core extends Module
         }
     }
 
+    public function conditions($options) {
+        option_require($options, 'conditions');
+
+        if (is_array($options->conditions)) {
+            foreach ($options->conditions as $condition) {
+                if ($this->app->parseObject($condition->when)) {
+                    $this->app->exec($condition->then, TRUE);
+                    return;
+                }
+            }
+        }
+    }
+
+    public function select($options) {
+        option_require($options, array('expression', 'cases'));
+
+        if (is_array($options->cases)) {
+            $expression = $this->app->parseObject($options->expression);
+
+            foreach ($options->cases as $case) {
+                if ($expression === $case->value) {
+                    $this->app->exec($case->exec, TRUE);
+                    return;
+                }
+            }
+        }
+    }
+
     public function setvalue($options) {
 		option_require($options, 'value');
 

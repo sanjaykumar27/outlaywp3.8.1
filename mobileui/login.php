@@ -3,8 +3,7 @@
 
 <head>
     <meta name="ac:route" content="/mobile-login">
-    <meta name="ac:base" content="/exp_latest">
-    <base href="/exp_latest/mobileui/">
+    <base href="/mobileui/">
     <script src="../dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="UTF-8">
     <title>Outlay Mobile Login</title>

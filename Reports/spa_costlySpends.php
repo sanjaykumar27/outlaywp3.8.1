@@ -9,7 +9,7 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 px-2" dmx-repeat:repeatcards="scGetCostlySpends.data.GetList">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 px-2" dmx-repeat:repeatcards="scGetCostlySpends.data.GetList">
             <div class="card rounded-lg shadow card-custom gutter-b position-relative" style="height: 130px">
                 <div class="font-weight-bolder ml-1 mt-1 position-absolute px-2 start-0 top-0">{{$index + 1}}</div>
                 <div class="card-body d-flex flex-column ">
